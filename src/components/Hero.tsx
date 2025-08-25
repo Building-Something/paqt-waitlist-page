@@ -99,7 +99,15 @@ const Hero = () => {
 
           {/* Enhanced CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0 mb-12 sm:mb-16">
-            <button className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-semibold text-lg sm:text-xl hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center w-full sm:w-auto justify-center animate-pulse-glow">
+            <button 
+              onClick={() => {
+                document.getElementById('waitlist-form')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-semibold text-lg sm:text-xl hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center w-full sm:w-auto justify-center animate-pulse-glow"
+            >
               Join the Waitlist
               <ArrowRight className="ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
             </button>

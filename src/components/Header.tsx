@@ -39,7 +39,15 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2.5 rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm relative overflow-hidden group">
+            <button 
+              onClick={() => {
+                document.getElementById('waitlist-form')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2.5 rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm relative overflow-hidden group"
+            >
               <span className="relative z-10">Get Early Access</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
@@ -74,7 +82,16 @@ const Header = () => {
               <a href="#login" className="block text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium py-2">
                 Log in
               </a>
-              <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 text-sm mt-4">
+              <button 
+                onClick={() => {
+                  document.getElementById('waitlist-form')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                  setIsMenuOpen(false); // Close mobile menu after clicking
+                }}
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 text-sm mt-4"
+              >
                 Get Early Access
               </button>
             </nav>

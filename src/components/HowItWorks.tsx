@@ -91,7 +91,15 @@ const HowItWorks = () => {
             <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
               Join thousands of legal professionals who are already on the waitlist
             </p>
-            <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 group">
+            <button 
+              onClick={() => {
+                document.getElementById('waitlist-form')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 group"
+            >
               Join the Waitlist Now
               <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

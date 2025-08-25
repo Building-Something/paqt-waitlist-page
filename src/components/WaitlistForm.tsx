@@ -5,13 +5,62 @@ const WaitlistForm = () => {
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Google Apps Script web app URL
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpf59UHxhJm5wIp8IwYT0Qzr-xNZujYUiOnOOyiCMgWKWj26_JLndHKILRgR7M1yTS/exec';
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-      // Here you would integrate with your backend/email service
-      console.log('Waitlist signup:', { email, company });
+    setError('');
+    setIsLoading(true);
+
+    try {
+      // Validate email
+      if (!email || !email.includes('@')) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Create URL with query parameters for GET request
+      const params = new URLSearchParams({
+        email: email.toLowerCase().trim(),
+        company: company.trim() || ''
+      });
+
+      const fullUrl = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+      console.log('🚀 Sending request to:', fullUrl);
+      console.log('📧 Email:', email);
+      console.log('🏢 Company:', company);
+
+      // Send to Google Apps Script using GET request
+      const response = await fetch(fullUrl, {
+        method: 'GET'
+      });
+
+      console.log('📡 Response status:', response.status);
+      console.log('📡 Response ok:', response.ok);
+
+      if (response.ok) {
+        const responseText = await response.text();
+        console.log('📡 Response text:', responseText);
+        
+        // Success!
+        setIsSubmitted(true);
+        setEmail('');
+        setCompany('');
+        console.log('✅ Waitlist signup successful:', { email, company });
+      } else {
+        const errorText = await response.text();
+        console.error('❌ Response error:', errorText);
+        throw new Error(`Failed to join waitlist. Status: ${response.status}`);
+      }
+      
+    } catch (err: any) {
+      console.error('❌ Error details:', err);
+      setError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -53,7 +102,7 @@ const WaitlistForm = () => {
   }
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30">
+    <section id="waitlist-form" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-blue-100/50">
@@ -70,6 +119,13 @@ const WaitlistForm = () => {
         </div>
 
         <div className="bg-white/80 backdrop-blur-sm p-8 sm:p-10 rounded-modern-lg border border-gray-200/50 shadow-soft hover:shadow-xl transition-all duration-500">
+          {/* Error Message */}
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+              {error}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
             <div>
               <label htmlFor="email" className="block text-base sm:text-lg font-semibold text-gray-700 mb-3 flex items-center">
@@ -84,6 +140,7 @@ const WaitlistForm = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@company.com"
                 className="w-full px-6 py-4 sm:py-5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg bg-white/50 backdrop-blur-sm hover:bg-white"
+                disabled={isLoading}
               />
             </div>
 
@@ -99,15 +156,26 @@ const WaitlistForm = () => {
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="Acme Corp or Legal Counsel"
                 className="w-full px-6 py-4 sm:py-5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg bg-white/50 backdrop-blur-sm hover:bg-white"
+                disabled={isLoading}
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-5 sm:py-6 rounded-full font-semibold text-lg sm:text-xl hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group animate-pulse-glow"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-5 sm:py-6 rounded-full font-semibold text-lg sm:text-xl hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Request Early Access
-              <ArrowRight className="ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3"></div>
+                  Joining Waitlist...
+                </>
+              ) : (
+                <>
+                  Request Early Access
+                  <ArrowRight className="ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
             </button>
 
             <p className="text-sm sm:text-base text-gray-500 text-center">
