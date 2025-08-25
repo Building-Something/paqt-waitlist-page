@@ -50,14 +50,16 @@ const WaitlistForm = () => {
         return;
       }
 
-      if (response.ok) {
-        // Success!
+      // Only succeed when backend explicitly returns 'success'
+      if (response.ok && /success/i.test(responseText)) {
         setIsSubmitted(true);
         setEmail('');
         setCompany('');
         console.log('✅ Waitlist signup successful:', { email, company });
       } else {
-        throw new Error(`Failed to join waitlist. Status: ${response.status}`);
+        // Surface backend error if present
+        const message = responseText?.trim() || `Failed to join waitlist. Status: ${response.status}`;
+        throw new Error(message);
       }
       
     } catch (err: any) {
