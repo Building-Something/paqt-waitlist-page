@@ -41,18 +41,22 @@ const WaitlistForm = () => {
       console.log('📡 Response status:', response.status);
       console.log('📡 Response ok:', response.ok);
 
+      const responseText = await response.text();
+      console.log('📡 Response text:', responseText);
+
+      // Handle duplicate email response (from Apps Script)
+      if (responseText && /already\s*exists|already\s*registered|duplicate/i.test(responseText)) {
+        setError('This email is already on the waitlist.');
+        return;
+      }
+
       if (response.ok) {
-        const responseText = await response.text();
-        console.log('📡 Response text:', responseText);
-        
         // Success!
         setIsSubmitted(true);
         setEmail('');
         setCompany('');
         console.log('✅ Waitlist signup successful:', { email, company });
       } else {
-        const errorText = await response.text();
-        console.error('❌ Response error:', errorText);
         throw new Error(`Failed to join waitlist. Status: ${response.status}`);
       }
       
