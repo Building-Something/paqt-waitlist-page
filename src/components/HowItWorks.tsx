@@ -1,31 +1,40 @@
 import React from 'react';
-import { Mail, Bell, Unlock, ArrowRight, CheckCircle } from 'lucide-react';
+import { Mail, Bell, Unlock, ArrowRight, CheckCircle, FileText, PenTool, Upload, Search, MessageCircle, Send, FileSignature } from 'lucide-react';
 
 const HowItWorks = () => {
-  const steps = [
+  const generationSteps = [
     {
-      icon: Mail,
-      step: '01',
-      title: 'Sign Up with Email',
-      description: 'Quick 30-second signup with just your email and optional company details.',
-      gradient: 'from-blue-500 to-indigo-600',
-      bgGradient: 'from-blue-50 to-indigo-50'
+      icon: FileText,
+      title: 'Select Contract Type',
+      description: 'Choose from NDAs, MSAs, Employment, SaaS, and more.'
     },
     {
-      icon: Bell,
-      step: '02',
-      title: 'Get Notified First',
-      description: 'Receive exclusive updates and be first to know when early access opens.',
-      gradient: 'from-green-500 to-emerald-600',
-      bgGradient: 'from-green-50 to-emerald-50'
+      icon: PenTool,
+      title: 'Describe Your Needs',
+      description: 'Tell Paqt the parties, terms, and key clauses to include.'
     },
     {
-      icon: Unlock,
-      step: '03',
-      title: 'Unlock Early Access',
-      description: 'Start using Paqt\'s AI tools weeks before public launch with premium features.',
-      gradient: 'from-purple-500 to-pink-600',
-      bgGradient: 'from-purple-50 to-pink-50'
+      icon: Send,
+      title: 'Send for e-Signature',
+      description: 'Finalize and send securely for signatures in one click.'
+    }
+  ];
+
+  const reviewSteps = [
+    {
+      icon: Upload,
+      title: 'Upload Contract',
+      description: 'Drag and drop or paste a link to your existing agreement.'
+    },
+    {
+      icon: Search,
+      title: 'AI Analysis & Red Flags',
+      description: 'Instantly see obligations, risks, missing clauses, and summaries.'
+    },
+    {
+      icon: MessageCircle,
+      title: 'Chat With Legal Assistant',
+      description: 'Ask questions, get clause-level insights, and request revisions.'
     }
   ];
 
@@ -35,61 +44,116 @@ const HowItWorks = () => {
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-green-100/50">
             <CheckCircle className="w-4 h-4 mr-2 text-green-600" />
-            Simple Process
+            Product Workflow
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2 sm:px-0">
-            How It{' '}
-            <span className="gradient-text-blue">Works</span>
+            How It Works in <span className="gradient-text-blue">Paqt</span>
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
-            Three simple steps to secure your early access to AI-powered contract intelligence
+            Two powerful flows: Contract Generation and Contract Review — all in one place
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
-          {steps.map((step, index) => (
-            <div key={index} className="relative text-center group">
-              {/* Enhanced connection line */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 sm:top-14 left-1/2 w-full h-1 bg-gradient-to-r from-blue-200 via-green-200 to-purple-200 transform translate-x-8 sm:translate-x-10 rounded-full"></div>
-              )}
-              
-              {/* Enhanced step circle */}
-              <div className={`relative w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br ${step.gradient} rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg hover:shadow-xl`}>
-                <step.icon className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
-                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center border-2 border-gray-200 shadow-lg">
-                  <span className="text-gray-700 text-sm sm:text-base font-bold">{step.step}</span>
-                </div>
+        {/* Tree container */}
+        <div className="relative">
+          {/* Center trunk & node */}
+          <div className="relative flex flex-col items-center">
+            {/* Center top node */}
+            <div className="relative z-10 w-40 sm:w-48 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-soft px-4 py-3 sm:px-5 sm:py-4 text-center">
+              <div className="mx-auto mb-2 w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg">
+                <FileSignature className="w-5 h-5 text-white" />
               </div>
-
-              {/* Step content with enhanced styling */}
-              <div className="group-hover:-translate-y-1 transition-transform duration-300">
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 px-2 sm:px-0">
-                  {step.title}
-                </h3>
-                <p className="text-base sm:text-lg text-gray-600 leading-relaxed px-4 sm:px-0">
-                  {step.description}
-                </p>
-              </div>
-
-              {/* Arrow indicator for mobile */}
-              {index < steps.length - 1 && (
-                <div className="md:hidden flex justify-center mt-6">
-                  <ArrowRight className="w-6 h-6 text-gray-400 rotate-90" />
-                </div>
-              )}
+              <div className="text-sm sm:text-base font-bold text-gray-900">Paqt</div>
+              <div className="text-xs sm:text-sm text-gray-600">AI Contract Platform</div>
             </div>
-          ))}
+
+            {/* Branch lines */}
+            <div className="relative w-full max-w-4xl mx-auto">
+              {/* Vertical line from Paqt */}
+              <div className="absolute left-1/2 top-0 h-8 w-0.5 bg-gradient-to-b from-gray-200 to-gray-300 -translate-x-1/2"></div>
+              {/* Horizontal branch line */}
+              <div className="absolute top-8 left-1/2 w-full max-w-4xl -translate-x-1/2">
+                <div className="h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Branch columns */}
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+            {/* Contract Generation branch */}
+            <div className="relative">
+              {/* Branch title */}
+              <div className="flex items-center mb-6">
+                <div className="w-3 h-3 rounded-full bg-blue-600 mr-3 shadow-glow"></div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Contract Generation</h3>
+              </div>
+              {/* Vertical connector */}
+              <div className="absolute left-1.5 top-8 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 to-gray-200"></div>
+
+              <div className="space-y-6">
+                {generationSteps.map((step, idx) => (
+                  <div key={idx} className="relative pl-8">
+                    {/* Node */}
+                    <div className="absolute left-0 top-1.5 w-3 h-3 rounded-full bg-blue-600 shadow-glow"></div>
+                    {/* Card */}
+                    <div className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-modern-lg shadow-soft hover:shadow-lg transition-all duration-300 p-6">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                          <step.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <div className="text-base sm:text-lg font-semibold text-gray-900 mb-1">{step.title}</div>
+                          <div className="text-sm sm:text-base text-gray-600">{step.description}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contract Review branch */}
+            <div className="relative">
+              {/* Branch title */}
+              <div className="flex items-center mb-6">
+                <div className="w-3 h-3 rounded-full bg-emerald-600 mr-3 shadow-glow"></div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Contract Review</h3>
+              </div>
+              {/* Vertical connector */}
+              <div className="absolute left-1.5 top-8 bottom-0 w-0.5 bg-gradient-to-b from-emerald-200 to-gray-200"></div>
+
+              <div className="space-y-6">
+                {reviewSteps.map((step, idx) => (
+                  <div key={idx} className="relative pl-8">
+                    {/* Node */}
+                    <div className="absolute left-0 top-1.5 w-3 h-3 rounded-full bg-emerald-600 shadow-glow"></div>
+                    {/* Card */}
+                    <div className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-modern-lg shadow-soft hover:shadow-lg transition-all duration-300 p-6">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                          <step.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <div className="text-base sm:text-lg font-semibold text-gray-900 mb-1">{step.title}</div>
+                          <div className="text-sm sm:text-base text-gray-600">{step.description}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Enhanced CTA section */}
+        {/* CTA under tree */}
         <div className="mt-16 sm:mt-20 text-center">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-modern-lg p-8 sm:p-10 border border-blue-100/50 shadow-soft">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Ready to Get Started?
+              Ready to Try Paqt?
             </h3>
             <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-              Join thousands of legal professionals who are already on the waitlist
+              Generate contracts, review agreements, and chat with your AI legal assistant — all in minutes.
             </p>
             <button 
               onClick={() => {
