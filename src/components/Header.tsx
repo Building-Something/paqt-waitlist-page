@@ -13,7 +13,7 @@ const Header = () => {
           <div className="flex items-center space-x-3 group">
             <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center group-hover:scale-105 transition-all duration-300">
               <img 
-                src="./public/Logo-Variant-Transparent.png" 
+                src="/Logo-Variant-Transparent.png" 
                 alt="Paqt Logo" 
                 className="w-full h-full object-contain"
               />
