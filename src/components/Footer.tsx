@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Mail, Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import { Mail, Twitter, Linkedin, Github, Heart } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,8 +9,12 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                <FileText className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img 
+                  src="/assets/Logo-Variant-Transparent.png" 
+                  alt="Paqt Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-2xl font-bold gradient-text-blue">Paqt</span>
             </div>

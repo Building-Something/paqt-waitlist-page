@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const Header = () => {
@@ -11,8 +11,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3 group">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-              <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center group-hover:scale-105 transition-all duration-300">
+              <img 
+                src="/assets/Logo-Variant-Transparent.png" 
+                alt="Paqt Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className="text-xl sm:text-2xl font-bold gradient-text-blue">Paqt</span>
           </div>

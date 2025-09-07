@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Bell, Unlock, ArrowRight, CheckCircle, FileText, PenTool, Upload, Search, MessageCircle, Send, FileSignature } from 'lucide-react';
+import { Mail, Bell, Unlock, ArrowRight, CheckCircle, FileText, PenTool, Upload, Search, MessageCircle, Send } from 'lucide-react';
 
 const HowItWorks = () => {
   const generationSteps = [
@@ -59,12 +59,14 @@ const HowItWorks = () => {
           {/* Center trunk & node */}
           <div className="relative flex flex-col items-center">
             {/* Center top node */}
-            <div className="relative z-10 w-40 sm:w-48 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-soft px-4 py-3 sm:px-5 sm:py-4 text-center">
-              <div className="mx-auto mb-2 w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg">
-                <FileSignature className="w-5 h-5 text-white" />
+            <div className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-soft flex items-center justify-center p-3 sm:p-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                <img 
+                  src="/Logo-Variant-Transparent.png" 
+                  alt="Paqt Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <div className="text-sm sm:text-base font-bold text-gray-900">Paqt</div>
-              <div className="text-xs sm:text-sm text-gray-600">AI Contract Platform</div>
             </div>
 
             {/* Branch lines */}

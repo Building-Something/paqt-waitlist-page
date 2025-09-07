@@ -84,14 +84,14 @@ const WaitlistForm = () => {
             Thanks for joining the Paqt waitlist. We'll notify you as soon as early access opens.
           </p>
           <p className="text-base sm:text-lg text-gray-500 px-4 sm:px-0">
-            Check your email for a confirmation and exclusive updates.
+            We'll notify you as soon as early access becomes available.
           </p>
           
           {/* Additional benefits */}
           <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
             <div className="flex items-center justify-center space-x-3 text-gray-600">
               <Mail className="w-5 h-5 text-blue-600" />
-              <span className="text-sm sm:text-base font-medium">Email Confirmed</span>
+              <span className="text-sm sm:text-base font-medium">Waitlist Joined</span>
             </div>
             <div className="flex items-center justify-center space-x-3 text-gray-600">
               <Sparkles className="w-5 h-5 text-purple-600" />
@@ -203,7 +203,7 @@ const WaitlistForm = () => {
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
                   <Mail className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-sm font-medium text-gray-600">Instant Confirmation</span>
+                <span className="text-sm font-medium text-gray-600">Waitlist Joined</span>
               </div>
               <div className="flex flex-col items-center space-y-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
