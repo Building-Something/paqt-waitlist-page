@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-10 h-10 flex items-center justify-center">
                 <img 
-                  src="/assets/Logo-Variant-Transparent.png" 
+                  src="/Logo-Variant-Transparent.png" 
                   alt="Paqt Logo" 
                   className="w-full h-full object-contain"
                 />
