@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import LogoT from '../../assets/Logo-Variant-Transparent.png';
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-10 h-10 flex items-center justify-center">
                 <img 
-                  src="/Logo-Variant-Transparent.png" 
+                  src={LogoT}
                   alt="Paqt Logo" 
                   className="w-full h-full object-contain"
                 />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Bell, Unlock, ArrowRight, CheckCircle, FileText, PenTool, Upload, Search, MessageCircle, Send } from 'lucide-react';
+import LogoT from '../../assets/Logo-Variant-Transparent.png';
 
 const HowItWorks = () => {
   const generationSteps = [
@@ -62,7 +63,7 @@ const HowItWorks = () => {
             <div className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-soft flex items-center justify-center p-3 sm:p-4">
               <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
                 <img 
-                  src="/Logo-Variant-Transparent.png" 
+                  src={LogoT} 
                   alt="Paqt Logo" 
                   className="w-full h-full object-contain"
                 />
