@@ -153,10 +153,10 @@ const Hero = () => {
                   <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">
-                  99.9% Accurate
+                  Legally Relevant
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed">
-                  AI-powered precision you can trust
+                  Agreements that cover every detail, built with precision.
                 </p>
               </div>
 
@@ -165,10 +165,10 @@ const Hero = () => {
                   <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">
-                  AI-Powered
+                  Complete Automation
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed">
-                  Cutting-edge machine learning technology
+                  Just write the requirements, we handle the rest
                 </p>
               </div>
             </div>

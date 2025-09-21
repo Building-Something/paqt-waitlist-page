@@ -50,7 +50,7 @@ const HowItWorks = () => {
             How It Works in <span className="gradient-text-blue">Paqt</span>
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
-            Two powerful flows: Contract Generation and Contract Review — all in one place
+          From drafting contracts to reviewing clauses, Paqt handles the entire contract process seamlessly.
           </p>
         </div>
 

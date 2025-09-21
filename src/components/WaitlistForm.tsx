@@ -117,7 +117,7 @@ const WaitlistForm = () => {
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2 sm:px-0">
             Ready to Transform Your{' '}
-            <span className="gradient-text-blue">Legal Workflow?</span>
+            <span className="gradient-text-blue">Contracting Workflow?</span>
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 px-4 sm:px-0">
             Join thousands of legal professionals waiting for early access
