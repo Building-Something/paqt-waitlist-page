@@ -191,7 +191,7 @@ const WaitlistForm = () => {
           </form>
 
           {/* Trust indicators */}
-          <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-200/50">
+          {/* <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-200/50">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
               <div className="flex flex-col items-center space-y-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
@@ -212,7 +212,7 @@ const WaitlistForm = () => {
                 <span className="text-sm font-medium text-gray-600">Priority Access</span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

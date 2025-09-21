@@ -20,7 +20,7 @@ const Footer = () => {
               <span className="text-2xl font-bold gradient-text-blue">Paqt</span>
             </div>
             <p className="text-gray-600 text-base sm:text-lg mb-6 max-w-md">
-              AI-powered contract intelligence that transforms how legal teams create, analyze, and optimize contracts.
+            Your partner in creating, evaluating, and improving contracts, covering every detail while saving time and effort.
             </p>
             <div className="flex space-x-4">
               <a href="#twitter" className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group">
