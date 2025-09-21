@@ -13,7 +13,7 @@ function App() {
       <Hero />
       <WhyJoin />
       <HowItWorks />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <WaitlistForm />
       <Footer />
     </div>

@@ -72,7 +72,7 @@ const WaitlistForm = () => {
 
   if (isSubmitted) {
     return (
-      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-green-50 via-white to-emerald-50/30">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-50 via-white to-emerald-50/30">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-lg">
             <Check className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
@@ -108,9 +108,9 @@ const WaitlistForm = () => {
   }
 
   return (
-    <section id="waitlist-form" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30">
+    <section id="waitlist-form" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-blue-100/50">
             <Sparkles className="w-4 h-4 mr-2 text-blue-600" />
             Early Access

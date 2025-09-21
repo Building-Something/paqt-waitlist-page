@@ -1,5 +1,4 @@
-import React from 'react';
-import { Play, ArrowRight, Sparkles, Zap, Shield, Clock, Target, Brain } from 'lucide-react';
+import { Play, ArrowRight, Sparkles, Zap, Shield, Target, Brain } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -77,28 +76,28 @@ const Hero = () => {
       <div className="absolute top-40 right-20 w-32 h-32 bg-purple-200/20 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
       <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-indigo-200/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-28 lg:pb-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20">
         <div className="text-center">
           {/* Enhanced label tag */}
-          <div className="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-full text-sm sm:text-base font-semibold mb-8 sm:mb-10 shadow-soft border border-blue-100/50">
+          <div className="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-full text-sm sm:text-base font-semibold mb-6 sm:mb-8 shadow-soft border border-blue-100/50">
             <Sparkles className="w-4 h-4 mr-2 text-blue-600" />
-            🔐 AI-Powered Contract Intelligence
+            Copilot for Smarter Contracts
           </div>
 
           {/* Enhanced main headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 px-2 sm:px-0">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6 px-2 sm:px-0">
             Be the First to Experience{' '}
             <span className="gradient-text-blue">Smarter Contracts</span>
           </h1>
 
           {/* Supporting text */}
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl lg:max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 leading-relaxed px-4 sm:px-0">
-            Join Paqt's waitlist and get early access to our AI legal assistant that creates, 
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl lg:max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-12 leading-relaxed px-4 sm:px-0">
+            Join the waitlist and get early access to our contract copilot that creates, 
             analyzes, and optimizes contracts in minutes, not hours.
           </p>
 
           {/* Enhanced CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0 mb-12 sm:mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0 mb-8 sm:mb-12">
             <button 
               onClick={() => {
                 document.getElementById('waitlist-form')?.scrollIntoView({ 
@@ -112,10 +111,10 @@ const Hero = () => {
               <ArrowRight className="ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
             </button>
             
-            <button className="group bg-white/80 backdrop-blur-sm border-2 border-gray-200 text-gray-700 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-semibold text-lg sm:text-xl hover:border-gray-300 hover:shadow-lg hover:shadow-gray-500/10 transition-all duration-300 flex items-center w-full sm:w-auto justify-center hover:bg-white">
+            {/* <button className="group bg-white/80 backdrop-blur-sm border-2 border-gray-200 text-gray-700 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-semibold text-lg sm:text-xl hover:border-gray-300 hover:shadow-lg hover:shadow-gray-500/10 transition-all duration-300 flex items-center w-full sm:w-auto justify-center hover:bg-white">
               <Play className="mr-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
               Watch Demo
-            </button>
+            </button> */}
           </div>
 
           {/* Enhanced trust indicators - COMMENTED OUT */}
@@ -130,7 +129,7 @@ const Hero = () => {
           </div> */}
 
           {/* Enhanced feature highlights */}
-          <div className="mt-16 sm:mt-20">
+          <div className="mt-12 sm:mt-16">
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 text-gray-600 rounded-full text-sm font-medium mb-8 shadow-soft border border-gray-200/50">
               <Target className="w-4 h-4 mr-2 text-gray-500" />
               Why Choose Paqt?

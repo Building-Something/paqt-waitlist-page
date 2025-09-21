@@ -1,5 +1,4 @@
-import React from 'react';
-import { Crown, Zap, MessageSquare, Gift, Star, Users, Clock, Shield } from 'lucide-react';
+import { Crown, Zap, MessageSquare, Gift, Star } from 'lucide-react';
 
 const WhyJoin = () => {
   const benefits = [
@@ -34,9 +33,9 @@ const WhyJoin = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-gray-50/50 via-white to-gray-50/30">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50/50 via-white to-gray-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-blue-100/50">
             <Star className="w-4 h-4 mr-2 text-blue-600" />
             Exclusive Benefits
@@ -46,7 +45,7 @@ const WhyJoin = () => {
             <span className="gradient-text-blue">Waitlist?</span>
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
-            Get exclusive perks and be among the first to revolutionize your legal workflow
+            Get exclusive perks and be among the first to revolutionize your contracting workflow
           </p>
         </div>
 
@@ -75,7 +74,7 @@ const WhyJoin = () => {
         </div>
 
         {/* Additional stats section */}
-        <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto">
+        {/* <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto">
           <div className="text-center">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
               <Users className="w-6 h-6 text-white" />
@@ -97,7 +96,7 @@ const WhyJoin = () => {
             <div className="text-2xl sm:text-3xl font-bold gradient-text-blue mb-2">100%</div>
             <div className="text-sm sm:text-base text-gray-600">Secure & Private</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Mail, Bell, Unlock, ArrowRight, CheckCircle, FileText, PenTool, Upload, Search, MessageCircle, Send } from 'lucide-react';
+import { ArrowRight, CheckCircle, FileText, PenTool, Upload, Search, MessageCircle, Send } from 'lucide-react';
 import LogoT from '../../assets/Logo-Variant-Transparent.png';
 
 const HowItWorks = () => {
@@ -40,9 +39,9 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-white via-gray-50/30 to-white">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-green-100/50">
             <CheckCircle className="w-4 h-4 mr-2 text-green-600" />
             Product Workflow
@@ -150,7 +149,7 @@ const HowItWorks = () => {
         </div>
 
         {/* CTA under tree */}
-        <div className="mt-16 sm:mt-20 text-center">
+        <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-modern-lg p-8 sm:p-10 border border-blue-100/50 shadow-soft">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Ready to Try Paqt?

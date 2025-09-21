@@ -1,4 +1,3 @@
-import React from 'react';
 import { Quote, Star, Award, Users, TrendingUp } from 'lucide-react';
 
 const Testimonial = () => {
@@ -20,9 +19,9 @@ const Testimonial = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-purple-100/50">
             <Award className="w-4 h-4 mr-2 text-purple-600" />
             Customer Success
@@ -32,11 +31,11 @@ const Testimonial = () => {
             <span className="gradient-text-blue">Legal Teams</span>
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
-            See how leading companies are transforming their legal workflows with Paqt
+            See how leading companies are transforming their contracting workflows with Paqt
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="group relative bg-white/80 backdrop-blur-sm p-8 sm:p-10 rounded-modern-lg border border-gray-200/50 shadow-soft hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* Quote icon */}
@@ -69,7 +68,7 @@ const Testimonial = () => {
         </div>
 
         {/* Stats section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto mb-12 sm:mb-16">
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
               <Users className="w-8 h-8 text-white" />
