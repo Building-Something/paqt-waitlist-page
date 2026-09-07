@@ -8,6 +8,13 @@ const DemoVideo = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  const [aspectRatio, setAspectRatio] = useState('16 / 9');
+
+  const handleLoadedMetadata = () => {
+    const video = videoRef.current;
+    if (!video || !video.videoWidth || !video.videoHeight) return;
+    setAspectRatio(`${video.videoWidth} / ${video.videoHeight}`);
+  };
 
   const togglePlay = () => {
     const video = videoRef.current;
@@ -48,16 +55,20 @@ const DemoVideo = () => {
           <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-r from-brand-200/50 via-cyan-200/40 to-brand-200/50 blur-2xl" />
 
           {/* Player */}
-          <div className="group relative overflow-hidden rounded-3xl border border-slate-200/70 bg-slate-900 shadow-card">
+          <div
+            className="group relative max-h-[75vh] overflow-hidden rounded-3xl border border-slate-200/70 bg-slate-900 shadow-card"
+            style={{ aspectRatio }}
+          >
             <video
               ref={videoRef}
               src={DEMO_VIDEO_SRC}
-              className="aspect-video w-full object-cover"
+              className="h-full w-full object-contain"
               autoPlay
               muted
               loop
               playsInline
               preload="metadata"
+              onLoadedMetadata={handleLoadedMetadata}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
             />
