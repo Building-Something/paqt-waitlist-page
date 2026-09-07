@@ -1,173 +1,128 @@
-import { ArrowRight, CheckCircle, FileText, PenTool, Upload, Search, MessageCircle, Send } from 'lucide-react';
-import LogoT from '../../assets/Logo-Variant-Transparent.png';
+import { ArrowRight, FileText, Send, Upload, ScanSearch, MessageSquareText, PenLine, CheckCircle } from 'lucide-react';
+
+const branches = [
+  {
+    title: 'Contract Generation',
+    accent: 'text-brand-600',
+    iconBg: 'bg-brand-600',
+    tickBg: 'bg-brand-100 text-brand-700',
+    gradient: 'from-brand-500 to-brand-700',
+    steps: [
+      {
+        icon: FileText,
+        title: 'Pick a template',
+        description: 'Choose from NDAs, MSAs, employment, SaaS, and 50+ more.',
+      },
+      {
+        icon: PenLine,
+        title: 'Describe your needs',
+        description: 'Add the parties, terms, and clauses you want included.',
+      },
+      {
+        icon: Send,
+        title: 'Send to sign',
+        description: 'Finalize and dispatch for secure e-signature in one click.',
+      },
+    ],
+  },
+  {
+    title: 'Contract Review',
+    accent: 'text-emerald-600',
+    iconBg: 'bg-emerald-600',
+    tickBg: 'bg-emerald-100 text-emerald-700',
+    gradient: 'from-emerald-500 to-teal-700',
+    steps: [
+      {
+        icon: Upload,
+        title: 'Upload an agreement',
+        description: 'Drag and drop, or paste a link to an existing contract.',
+      },
+      {
+        icon: ScanSearch,
+        title: 'Spot risks instantly',
+        description: 'See missing clauses, obligations, and red flags at a glance.',
+      },
+      {
+        icon: MessageSquareText,
+        title: 'Ask your copilot',
+        description: 'Chat for clause-level answers and request revisions on the spot.',
+      },
+    ],
+  },
+];
 
 const HowItWorks = () => {
-  const generationSteps = [
-    {
-      icon: FileText,
-      title: 'Select Contract Type',
-      description: 'Choose from NDAs, MSAs, Employment, SaaS, and more.'
-    },
-    {
-      icon: PenTool,
-      title: 'Describe Your Needs',
-      description: 'Tell Paqt the parties, terms, and key clauses to include.'
-    },
-    {
-      icon: Send,
-      title: 'Send for e-Signature',
-      description: 'Finalize and send securely for signatures in one click.'
-    }
-  ];
-
-  const reviewSteps = [
-    {
-      icon: Upload,
-      title: 'Upload Contract',
-      description: 'Drag and drop or paste a link to your existing agreement.'
-    },
-    {
-      icon: Search,
-      title: 'AI Analysis & Red Flags',
-      description: 'Instantly see obligations, risks, missing clauses, and summaries.'
-    },
-    {
-      icon: MessageCircle,
-      title: 'Chat With Legal Assistant',
-      description: 'Ask questions, get clause-level insights, and request revisions.'
-    }
-  ];
+  const scrollToForm = () => {
+    document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/30 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-green-100/50">
-            <CheckCircle className="w-4 h-4 mr-2 text-green-600" />
+    <section id="how-it-works" className="relative bg-slate-50/70 py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="section-pill">
+            <CheckCircle className="h-4 w-4" />
             Product Workflow
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2 sm:px-0">
-            How It Works in <span className="gradient-text-blue">Paqt</span>
+          <h2 className="section-title mt-4">
+            Everything your contracts need, in <span className="gradient-text">one flow.</span>
           </h2>
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
-          From drafting contracts to reviewing clauses, Paqt handles the entire contract process seamlessly.
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            Whether you're building or reviewing a contract, Paqt carries it through from start to finish.
           </p>
         </div>
 
-        {/* Tree container */}
-        <div className="relative">
-          {/* Center trunk & node */}
-          <div className="relative flex flex-col items-center">
-            {/* Center top node */}
-            <div className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-soft flex items-center justify-center p-3 sm:p-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                <img 
-                  src={LogoT} 
-                  alt="Paqt Logo" 
-                  className="w-full h-full object-contain"
-                />
+        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8">
+          {branches.map((branch) => (
+            <div key={branch.title} className="relative rounded-3xl border border-slate-200/70 bg-white p-8 shadow-card sm:p-10">
+              <div className="flex items-center gap-3">
+                <span className={`flex h-3 w-3 rounded-full ${branch.iconBg}`} />
+                <h3 className="font-display text-xl font-bold text-slate-900 sm:text-2xl">{branch.title}</h3>
               </div>
-            </div>
 
-            {/* Branch lines */}
-            <div className="relative w-full max-w-4xl mx-auto">
-              {/* Vertical line from Paqt */}
-              <div className="absolute left-1/2 top-0 h-8 w-0.5 bg-gradient-to-b from-gray-200 to-gray-300 -translate-x-1/2"></div>
-              {/* Horizontal branch line */}
-              <div className="absolute top-8 left-1/2 w-full max-w-4xl -translate-x-1/2">
-                <div className="h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-              </div>
-            </div>
-          </div>
+              <div className="mt-8 space-y-2">
+                {branch.steps.map((step, idx) => (
+                  <div key={idx} className="group relative flex gap-5 rounded-2xl p-4 transition-colors duration-300 hover:bg-slate-50 sm:p-5">
+                    {/* Connector line */}
+                    {idx < branch.steps.length - 1 && (
+                      <div className={`absolute left-[2.35rem] top-20 h-[calc(100%-3rem)] w-px bg-gradient-to-b ${branch.gradient} opacity-20`} />
+                    )}
 
-          {/* Branch columns */}
-          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-            {/* Contract Generation branch */}
-            <div className="relative">
-              {/* Branch title */}
-              <div className="flex items-center mb-6">
-                <div className="w-3 h-3 rounded-full bg-blue-600 mr-3 shadow-glow"></div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Contract Generation</h3>
-              </div>
-              {/* Vertical connector */}
-              <div className="absolute left-1.5 top-8 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 to-gray-200"></div>
+                    <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${branch.gradient} shadow-soft transition-transform duration-300 group-hover:scale-105`}>
+                      <step.icon className="h-6 w-6 text-white" />
+                    </div>
 
-              <div className="space-y-6">
-                {generationSteps.map((step, idx) => (
-                  <div key={idx} className="relative pl-8">
-                    {/* Node */}
-                    <div className="absolute left-0 top-1.5 w-3 h-3 rounded-full bg-blue-600 shadow-glow"></div>
-                    {/* Card */}
-                    <div className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-modern-lg shadow-soft hover:shadow-lg transition-all duration-300 p-6">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                          <step.icon className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-base sm:text-lg font-semibold text-gray-900 mb-1">{step.title}</div>
-                          <div className="text-sm sm:text-base text-gray-600">{step.description}</div>
-                        </div>
+                    <div className="pt-0.5">
+                      <div className="flex items-center gap-2">
+                        <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${branch.tickBg} text-xs font-bold`}>
+                          {idx + 1}
+                        </span>
+                        <h4 className="font-semibold text-slate-900">{step.title}</h4>
                       </div>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-500 sm:text-base">{step.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Contract Review branch */}
-            <div className="relative">
-              {/* Branch title */}
-              <div className="flex items-center mb-6">
-                <div className="w-3 h-3 rounded-full bg-emerald-600 mr-3 shadow-glow"></div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Contract Review</h3>
-              </div>
-              {/* Vertical connector */}
-              <div className="absolute left-1.5 top-8 bottom-0 w-0.5 bg-gradient-to-b from-emerald-200 to-gray-200"></div>
-
-              <div className="space-y-6">
-                {reviewSteps.map((step, idx) => (
-                  <div key={idx} className="relative pl-8">
-                    {/* Node */}
-                    <div className="absolute left-0 top-1.5 w-3 h-3 rounded-full bg-emerald-600 shadow-glow"></div>
-                    {/* Card */}
-                    <div className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-modern-lg shadow-soft hover:shadow-lg transition-all duration-300 p-6">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                          <step.icon className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-base sm:text-lg font-semibold text-gray-900 mb-1">{step.title}</div>
-                          <div className="text-sm sm:text-base text-gray-600">{step.description}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* CTA under tree */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-modern-lg p-8 sm:p-10 border border-blue-100/50 shadow-soft">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Ready to Try Paqt?
+        {/* CTA panel */}
+        <div className="relative mt-16 overflow-hidden rounded-3xl bg-slate-900 px-8 py-12 text-center shadow-card sm:px-12 sm:py-16">
+          <div className="absolute -left-16 -top-16 h-64 w-64 rounded-full bg-brand-600/30 blur-3xl" />
+          <div className="absolute -bottom-20 -right-16 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl" />
+
+          <div className="relative mx-auto max-w-2xl">
+            <h3 className="font-display text-3xl font-bold text-white sm:text-4xl">
+              Ready to work smarter?
             </h3>
-            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-              Generate contracts, review agreements, and chat with your AI legal assistant — all in minutes.
+            <p className="mt-4 text-lg leading-relaxed text-slate-300">
+              Join the waitlist and be among the first to try Paqt when early access opens.
             </p>
-            <button 
-              onClick={() => {
-                document.getElementById('waitlist-form')?.scrollIntoView({ 
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 group"
-            >
+            <button onClick={scrollToForm} className="btn-primary group mt-8 bg-white text-slate-900 shadow-none hover:bg-slate-100 hover:text-slate-900">
               Join the Waitlist Now
-              <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
         </div>

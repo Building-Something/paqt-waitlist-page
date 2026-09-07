@@ -1,91 +1,89 @@
-import React from 'react';
-import { Mail, Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import { Twitter, Linkedin, Github, Heart } from 'lucide-react';
 import LogoT from '../../assets/Logo-Variant-Transparent.png';
+
+const productLinks = ['Features', 'Pricing', 'API', 'Integrations'];
+const companyLinks = ['About', 'Blog', 'Careers', 'Contact'];
+const legalLinks = ['Terms of Service', 'Privacy Policy', 'Security', 'Cookies'];
+const socials = [
+  { icon: Twitter, label: 'Twitter' },
+  { icon: Linkedin, label: 'LinkedIn' },
+  { icon: Github, label: 'GitHub' },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-gray-50 via-white to-gray-100/50 border-t border-gray-200/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16">
-          {/* Company Info */}
+    <footer className="border-t border-slate-200/70 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 py-16 lg:grid-cols-4 lg:gap-8">
+          {/* Company */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 flex items-center justify-center">
-                <img 
-                  src={LogoT}
-                  alt="Paqt Logo" 
-                  className="w-full h-full object-contain"
-                />
+            <div className="flex items-center gap-2.5">
+              <div className="h-10 w-10">
+                <img src={LogoT} alt="Paqt Logo" className="h-full w-full object-contain" />
               </div>
-              <span className="text-2xl font-bold gradient-text-blue">Paqt</span>
+              <span className="font-display text-2xl font-bold tracking-tight text-slate-900">
+                paqt<span className="gradient-text">.</span>
+              </span>
             </div>
-            <p className="text-gray-600 text-base sm:text-lg mb-6 max-w-md">
-            Your partner in creating, evaluating, and improving contracts, covering every detail while saving time and effort.
+            <p className="mt-5 max-w-md text-base leading-relaxed text-slate-500">
+              Your partner for creating, reviewing, and improving contracts — covering every
+              detail while saving you time and effort.
             </p>
-            <div className="flex space-x-4">
-              <a href="#twitter" className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group">
-                <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="#linkedin" className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-white hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group">
-                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="#github" className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-700 rounded-xl flex items-center justify-center text-white hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 group">
-                <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </a>
+            <div className="mt-6 flex gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href="#"
+                  aria-label={s.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-600"
+                >
+                  <s.icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Product Links */}
+          {/* Product */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Product</h3>
-            <ul className="space-y-3">
-              <li><a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Features</a></li>
-              <li><a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Pricing</a></li>
-              <li><a href="#api" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">API</a></li>
-              <li><a href="#integrations" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Integrations</a></li>
+            <h3 className="font-display text-sm font-bold uppercase tracking-wider text-slate-900">Product</h3>
+            <ul className="mt-5 space-y-3">
+              {productLinks.map((link) => (
+                <li key={link}>
+                  <a href="#" className="text-slate-500 transition-colors duration-200 hover:text-slate-900">{link}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Company</h3>
-            <ul className="space-y-3">
-              <li><a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">About</a></li>
-              <li><a href="#blog" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Blog</a></li>
-              <li><a href="#careers" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Careers</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Contact</a></li>
+            <h3 className="font-display text-sm font-bold uppercase tracking-wider text-slate-900">Company</h3>
+            <ul className="mt-5 space-y-3">
+              {companyLinks.map((link) => (
+                <li key={link}>
+                  <a href="#" className="text-slate-500 transition-colors duration-200 hover:text-slate-900">{link}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="pt-8 sm:pt-12 border-t border-gray-200/50">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            {/* Copyright */}
-            <div className="flex items-center space-x-2 text-gray-500 text-sm">
-              <span>© 2025 Paqt. All rights reserved.</span>
-              <span className="hidden sm:inline">•</span>
-              <span className="flex items-center">
-                Built with <Heart className="w-4 h-4 mx-1 text-red-500" /> for legal professionals
-              </span>
-            </div>
-
-            {/* Legal Links */}
-            <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
-              <a href="#terms" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
-                Terms of Service
+        {/* Bottom bar */}
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-200/70 py-8 sm:flex-row">
+          <p className="flex items-center gap-1.5 text-sm text-slate-400">
+            © {new Date().getFullYear()} Paqt. All rights reserved.
+            <span className="hidden sm:inline">·</span>
+            <span className="flex items-center gap-1">
+              Built with <Heart className="h-3.5 w-3.5 text-red-500" /> for legal teams
+            </span>
+          </p>
+          <nav className="flex flex-wrap justify-center gap-5 text-sm">
+            {legalLinks.map((link) => (
+              <a key={link} href="#" className="text-slate-500 transition-colors duration-200 hover:text-slate-900">
+                {link}
               </a>
-              <a href="#privacy" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
-                Privacy Policy
-              </a>
-              <a href="#security" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
-                Security
-              </a>
-              <a href="#cookies" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
-                Cookies
-              </a>
-            </nav>
-          </div>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
