@@ -4,6 +4,12 @@ import { Play, Volume2, VolumeX, Clapperboard } from 'lucide-react';
 // Drop your demo video into the `public/` folder and update this path, e.g. `/demo.mp4`.
 const DEMO_VIDEO_SRC = '/demo.mp4';
 
+// Fades the edges of the video and player window so they blend into the page.
+const EDGE_FADE_MASK = {
+  maskImage: 'radial-gradient(120% 120% at 50% 50%, black 80%, transparent 96%)',
+  WebkitMaskImage: 'radial-gradient(120% 120% at 50% 50%, black 80%, transparent 96%)',
+};
+
 const DemoVideo = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -55,28 +61,28 @@ const DemoVideo = () => {
           <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-r from-brand-200/50 via-cyan-200/40 to-brand-200/50 blur-2xl" />
 
           {/* Player */}
-          <div
-            className="group relative max-h-[75vh] overflow-hidden rounded-3xl border border-slate-200/70 bg-slate-900 shadow-card"
-            style={{ aspectRatio }}
-          >
-            <video
-              ref={videoRef}
-              src={DEMO_VIDEO_SRC}
-              className="h-full w-full object-contain"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              onLoadedMetadata={handleLoadedMetadata}
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-            />
+          <div className="group relative max-h-[75vh]" style={{ aspectRatio }}>
+            {/* Video + panel (edge-faded) */}
+            <div className="relative h-full w-full overflow-hidden rounded-3xl bg-slate-900" style={EDGE_FADE_MASK}>
+              <video
+                ref={videoRef}
+                src={DEMO_VIDEO_SRC}
+                className="h-full w-full object-contain"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                onLoadedMetadata={handleLoadedMetadata}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              />
 
-            {/* Soft bottom gradient for readability */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-900/50 to-transparent" />
+              {/* Soft bottom gradient for readability */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 rounded-b-3xl bg-gradient-to-t from-slate-900/60 to-transparent" />
+            </div>
 
-            {/* Center play/pause overlay */}
+            {/* Center play/pause overlay (outside mask) */}
             <button
               type="button"
               onClick={togglePlay}
@@ -90,7 +96,7 @@ const DemoVideo = () => {
               )}
             </button>
 
-            {/* Controls bar */}
+            {/* Controls bar (outside mask) */}
             <div className="absolute bottom-4 right-4 flex items-center gap-2">
               <button
                 type="button"
