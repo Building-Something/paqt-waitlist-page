@@ -34,6 +34,7 @@ const slides = [
 
 const VideoShowcase = () => {
   const [active, setActive] = useState(0);
+  const [ratios, setRatios] = useState<Record<number, number>>({});
   const playerRefs = useRef<(MuxPlayerHandle | null)[]>([]);
 
   useEffect(() => {
@@ -46,6 +47,23 @@ const VideoShowcase = () => {
       }
     });
   }, [active]);
+
+  const onPlayerMount = (el: MuxPlayerHandle | null, index: number) => {
+    playerRefs.current[index] = el;
+    if (!el) return;
+    const applyNaturalAspect = () => {
+      const { videoWidth, videoHeight } = el;
+      if (videoWidth && videoHeight) {
+        const ratio = videoWidth / videoHeight;
+        setRatios((prev) => (prev[index] === ratio ? prev : { ...prev, [index]: ratio }));
+      }
+    };
+    if (el.videoWidth && el.videoHeight) {
+      applyNaturalAspect();
+    } else {
+      el.addEventListener('loadedmetadata', applyNaturalAspect, { once: true });
+    }
+  };
 
   const focusKey = (e: React.KeyboardEvent) => {
     const codes = ['ArrowLeft', 'ArrowRight'];
@@ -110,20 +128,25 @@ const VideoShowcase = () => {
           >
             {slides.map((s, i) => (
               <div key={s.id} className="w-full shrink-0 px-1 sm:px-2">
-                <div className={`card glow-border overflow-hidden ${active === i ? s.glow : ''}`}>
-                  <div className="relative aspect-video overflow-hidden bg-ink-950">
+                <div className="card glow-border overflow-hidden ${active === i ? s.glow : ''}">
+                  <div className="relative w-full overflow-hidden bg-ink-950" style={{ aspectRatio: ratios[i] ? `${ratios[i]}` : '16 / 9' }}>
                     <MuxPlayer
-                      ref={(el) => {
-                        playerRefs.current[i] = el;
-                      }}
+                      ref={(el) => onPlayerMount(el, i)}
                       src={s.video}
                       autoPlay={active === i ? 'muted' : false}
                       muted
                       loop
                       playsInline
+                      nohotkeys
                       disableTracking
                       disableCookies
-                      style={{ width: '100%', height: '100%', '--media-accent-color': '#a78bfa' }}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        '--media-accent-color': '#a78bfa',
+                        '--controls': 'none',
+                        '--media-object-fit': 'contain',
+                      }}
                       className="h-full w-full"
                     />
                   </div>
