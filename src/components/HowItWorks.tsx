@@ -1,53 +1,40 @@
-import { ArrowRight, FileText, Send, Upload, ScanSearch, MessageSquareText, PenLine, CheckCircle } from 'lucide-react';
+import { PenLine, ScanSearch, MessageSquare, BadgeCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Reveal } from './Reveal';
+import { SplitText } from './SplitText';
 
-const branches = [
+const steps = [
   {
-    title: 'Contract Generation',
-    accent: 'text-brand-600',
-    iconBg: 'bg-brand-600',
-    tickBg: 'bg-brand-100 text-brand-700',
-    gradient: 'from-brand-500 to-brand-700',
-    steps: [
-      {
-        icon: FileText,
-        title: 'Pick a template',
-        description: 'Choose from NDAs, MSAs, employment, SaaS, and 50+ more.',
-      },
-      {
-        icon: PenLine,
-        title: 'Describe your needs',
-        description: 'Add the parties, terms, and clauses you want included.',
-      },
-      {
-        icon: Send,
-        title: 'Send to sign',
-        description: 'Finalize and dispatch for secure e-signature in one click.',
-      },
-    ],
+    icon: PenLine,
+    step: '01',
+    title: 'Create',
+    text: 'Start from a template or describe the deal in plain language — Paqt drafts the full agreement.',
+    accent: 'from-brand-500 to-violet-600',
+    textAccent: 'text-violet-300',
   },
   {
-    title: 'Contract Review',
-    accent: 'text-emerald-600',
-    iconBg: 'bg-emerald-600',
-    tickBg: 'bg-emerald-100 text-emerald-700',
-    gradient: 'from-emerald-500 to-teal-700',
-    steps: [
-      {
-        icon: Upload,
-        title: 'Upload an agreement',
-        description: 'Drag and drop, or paste a link to an existing contract.',
-      },
-      {
-        icon: ScanSearch,
-        title: 'Spot risks instantly',
-        description: 'See missing clauses, obligations, and red flags at a glance.',
-      },
-      {
-        icon: MessageSquareText,
-        title: 'Ask your copilot',
-        description: 'Chat for clause-level answers and request revisions on the spot.',
-      },
-    ],
+    icon: ScanSearch,
+    step: '02',
+    title: 'Review',
+    text: 'Upload or paste any contract. Risks, missing clauses, and obligations surface instantly.',
+    accent: 'from-cyan-500 to-sky-600',
+    textAccent: 'text-cyan-300',
+  },
+  {
+    icon: MessageSquare,
+    step: '03',
+    title: 'Refine',
+    text: 'Chat with your copilot about any clause. Request changes and get them applied in one click.',
+    accent: 'from-violet-500 to-fuchsia-600',
+    textAccent: 'text-fuchsia-300',
+  },
+  {
+    icon: BadgeCheck,
+    step: '04',
+    title: 'Sign & store',
+    text: 'Finalize with secure e-signature and keep everything organized in a searchable workspace.',
+    accent: 'from-emerald-500 to-teal-600',
+    textAccent: 'text-emerald-300',
   },
 ];
 
@@ -57,75 +44,75 @@ const HowItWorks = () => {
   };
 
   return (
-    <section id="how-it-works" className="relative bg-slate-50/70 py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="section-pill">
-            <CheckCircle className="h-4 w-4" />
-            Product Workflow
-          </div>
-          <h2 className="section-title mt-4">
-            Everything your contracts need, in <span className="gradient-text">one flow.</span>
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-slate-600">
-            Whether you're building or reviewing a contract, Paqt carries it through from start to finish.
-          </p>
+    <section id="how-it-works" className="relative overflow-hidden py-24 lg:py-32">
+      <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_80%_80%,rgba(34,211,238,0.07),transparent)]" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <span className="section-pill">
+              <BadgeCheck className="h-4 w-4 text-emerald-400" />
+              Product Workflow
+            </span>
+          </Reveal>
+          <SplitText
+            as="h2"
+            className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+            text="From idea to signed deal."
+          />
+          <Reveal delay={150}>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
+              One continuous flow — no tab-juggling, no file chaos, no lost versions.
+            </p>
+          </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8">
-          {branches.map((branch) => (
-            <div key={branch.title} className="relative rounded-3xl border border-slate-200/70 bg-white p-8 shadow-card sm:p-10">
-              <div className="flex items-center gap-3">
-                <span className={`flex h-3 w-3 rounded-full ${branch.iconBg}`} />
-                <h3 className="font-display text-xl font-bold text-slate-900 sm:text-2xl">{branch.title}</h3>
-              </div>
+        <div className="relative mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {/* connector line (desktop) */}
+          <div className="absolute left-[12%] right-[12%] top-14 hidden h-px bg-gradient-to-r from-brand-500/40 via-violet-500/40 to-emerald-500/40 lg:block" />
 
-              <div className="mt-8 space-y-2">
-                {branch.steps.map((step, idx) => (
-                  <div key={idx} className="group relative flex gap-5 rounded-2xl p-4 transition-colors duration-300 hover:bg-slate-50 sm:p-5">
-                    {/* Connector line */}
-                    {idx < branch.steps.length - 1 && (
-                      <div className={`absolute left-[2.35rem] top-20 h-[calc(100%-3rem)] w-px bg-gradient-to-b ${branch.gradient} opacity-20`} />
-                    )}
-
-                    <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${branch.gradient} shadow-soft transition-transform duration-300 group-hover:scale-105`}>
-                      <step.icon className="h-6 w-6 text-white" />
-                    </div>
-
-                    <div className="pt-0.5">
-                      <div className="flex items-center gap-2">
-                        <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${branch.tickBg} text-xs font-bold`}>
-                          {idx + 1}
-                        </span>
-                        <h4 className="font-semibold text-slate-900">{step.title}</h4>
-                      </div>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-500 sm:text-base">{step.description}</p>
-                    </div>
+          {steps.map((s, i) => (
+            <Reveal
+              key={s.step}
+              delay={i * 150}
+              className="group relative flex flex-col items-center text-center"
+            >
+              <div className="relative z-10">
+                <div className="relative">
+                  <div className={`flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br ${s.accent} shadow-glow transition-all duration-500 group-hover:scale-105 group-hover:rotate-3`}>
+                    <s.icon className="h-10 w-10 text-white" />
                   </div>
-                ))}
+                  <span className="absolute -right-2 -top-2 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-ink-900 font-display text-sm font-bold text-white shadow-soft">
+                    {s.step}
+                  </span>
+                </div>
               </div>
-            </div>
+              <h3 className="mt-6 font-display text-xl font-bold text-white">{s.title}</h3>
+              <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/50">{s.text}</p>
+            </Reveal>
           ))}
         </div>
 
         {/* CTA panel */}
-        <div className="relative mt-16 overflow-hidden rounded-3xl bg-slate-900 px-8 py-12 text-center shadow-card sm:px-12 sm:py-16">
-          <div className="absolute -left-16 -top-16 h-64 w-64 rounded-full bg-brand-600/30 blur-3xl" />
-          <div className="absolute -bottom-20 -right-16 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl" />
+        <Reveal delay={200} className="relative mt-20">
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-ink-800 to-ink-900 px-8 py-14 text-center sm:px-12">
+            <div className="absolute -left-20 -top-24 h-72 w-72 rounded-full bg-brand-600/30 blur-3xl animate-pulse-soft" />
+            <div className="absolute -bottom-24 -right-20 h-72 w-72 rounded-full bg-fuchsia-600/25 blur-3xl animate-pulse-soft [animation-delay:1.2s]" />
+            <div className="absolute inset-0 grid-lines opacity-40" />
 
-          <div className="relative mx-auto max-w-2xl">
-            <h3 className="font-display text-3xl font-bold text-white sm:text-4xl">
-              Ready to work smarter?
-            </h3>
-            <p className="mt-4 text-lg leading-relaxed text-slate-300">
-              Join the waitlist and be among the first to try Paqt when early access opens.
-            </p>
-            <button onClick={scrollToForm} className="btn-primary group mt-8 bg-white text-slate-900 shadow-none hover:bg-slate-100 hover:text-slate-900">
-              Join the Waitlist Now
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            <div className="relative mx-auto max-w-2xl">
+              <h3 className="font-display text-3xl font-bold text-white sm:text-4xl">
+                Ready to work <span className="accent-serif text-gradient-static">smarter?</span>
+              </h3>
+              <p className="mt-4 text-lg leading-relaxed text-white/60">
+                Join the waitlist and be among the first to try Paqt when early access opens.
+              </p>
+              <button onClick={scrollToForm} className="btn-primary group mt-8">
+                Join the Waitlist Now
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

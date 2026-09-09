@@ -5,9 +5,16 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       colors: {
+        ink: {
+          950: '#05060f',
+          900: '#0a0c1c',
+          800: '#10132b',
+          700: '#1a1f3d',
+        },
         brand: {
           50: '#eef4ff',
           100: '#dce8fe',
@@ -23,9 +30,9 @@ export default {
         },
       },
       boxShadow: {
-        soft: '0 2px 16px -4px rgba(15, 23, 42, 0.08), 0 8px 32px -8px rgba(15, 23, 42, 0.08)',
-        card: '0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 40px -12px rgba(15, 23, 42, 0.12)',
-        glow: '0 0 0 1px rgba(63, 120, 242, 0.12), 0 16px 48px -12px rgba(63, 120, 242, 0.35)',
+        soft: '0 2px 16px -4px rgba(5, 6, 15, 0.5), 0 8px 32px -8px rgba(5, 6, 15, 0.5)',
+        card: '0 1px 2px rgba(5, 6, 15, 0.6), 0 16px 48px -12px rgba(5, 6, 15, 0.6)',
+        glow: '0 0 0 1px rgba(127, 94, 246, 0.25), 0 12px 48px -12px rgba(127, 94, 246, 0.55)',
       },
       borderRadius: {
         '4xl': '2rem',
@@ -33,7 +40,7 @@ export default {
       },
       keyframes: {
         'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'fade-in': {
@@ -42,18 +49,63 @@ export default {
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-16px)' },
+          '50%': { transform: 'translateY(-18px)' },
         },
         'pulse-soft': {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.6' },
+          '50%': { opacity: '0.55' },
+        },
+        'aurora-shift': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'grid-move': {
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '56px 56px' },
+        },
+        marquee: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-50%)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'pulse-ring': {
+          '0%': { transform: 'scale(0.8)', opacity: '0.7' },
+          '100%': { transform: 'scale(1.6)', opacity: '0' },
+        },
+        blob: {
+          '0%, 100%': { borderRadius: '60% 40% 55% 45% / 55% 45% 60% 40%' },
+          '50%': { borderRadius: '40% 60% 45% 55% / 45% 55% 40% 60%' },
+        },
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'ticker': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       animation: {
-        'fade-up': 'fade-up 0.7s ease-out both',
-        'fade-in': 'fade-in 0.5s ease-out both',
+        'fade-up': 'fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'fade-in': 'fade-in 0.6s ease-out both',
         float: 'float 7s ease-in-out infinite',
         'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
+        'aurora-shift': 'aurora-shift 18s ease-in-out infinite',
+        'grid-move': 'grid-move 12s linear infinite',
+        marquee: 'marquee 30s linear infinite',
+        shimmer: 'shimmer 3.5s linear infinite',
+        'spin-slow': 'spin-slow 24s linear infinite',
+        'pulse-ring': 'pulse-ring 2.4s ease-out infinite',
+        blob: 'blob 12s ease-in-out infinite',
+        'gradient-x': 'gradient-x 6s ease infinite',
+        ticker: 'ticker 40s linear infinite',
       },
     },
   },

@@ -1,105 +1,129 @@
-import { Crown, Zap, MessageSquare, Gift, Star } from 'lucide-react';
+import { Crown } from 'lucide-react';
+import { Reveal } from './Reveal';
+import { SplitText } from './SplitText';
+import VideoShowcase from './VideoShowcase';
 
-const WhyJoin = () => {
-  const benefits = [
-    {
-      icon: Crown,
-      title: 'Priority Onboarding',
-      description: 'Skip the line with dedicated setup assistance and personalized training sessions.',
-      gradient: 'from-yellow-400 to-orange-500',
-      bgGradient: 'from-yellow-50 to-orange-50'
-    },
-    {
-      icon: Gift,
-      title: 'Launch Discounts',
-      description: 'Exclusive early-bird pricing with up to 50% off your first year subscription.',
-      gradient: 'from-green-400 to-emerald-500',
-      bgGradient: 'from-green-50 to-emerald-50'
-    },
-    {
-      icon: Zap,
-      title: 'Premium Features First',
-      description: 'Access advanced AI capabilities and integrations before they go public.',
-      gradient: 'from-blue-400 to-indigo-500',
-      bgGradient: 'from-blue-50 to-indigo-50'
-    },
-    {
-      icon: MessageSquare,
-      title: 'Direct Team Access',
-      description: 'Shape the product with direct feedback channels to our development team.',
-      gradient: 'from-purple-400 to-pink-500',
-      bgGradient: 'from-purple-50 to-pink-50'
-    }
-  ];
+// ---------------------------------------------------------------------------
+// COMMENTED OUT: "Early birds get the perks." content (per request)
+// ---------------------------------------------------------------------------
+// const benefits = [
+//   {
+//     icon: Crown,
+//     title: 'Priority onboarding',
+//     text: 'Skip the line with dedicated setup and a walkthrough from the team that built it.',
+//     gradient: 'from-amber-400 to-orange-500',
+//     glow: 'shadow-[0_0_40px_-8px_rgba(251,191,36,0.5)]',
+//   },
+//   {
+//     icon: Gift,
+//     title: 'Founding discount',
+//     text: 'Up to 50% off your first year — a thank-you for believing in us early.',
+//     gradient: 'from-green-400 to-emerald-500',
+//     glow: 'shadow-[0_0_40px_-8px_rgba(52,211,153,0.5)]',
+//   },
+//   {
+//     icon: Zap,
+//     title: 'New features first',
+//     text: 'Test advanced AI capabilities and integrations before they reach the public.',
+//     gradient: 'from-brand-400 to-indigo-500',
+//     glow: 'shadow-[0_0_40px_-8px_rgba(99,102,241,0.5)]',
+//   },
+//   {
+//     icon: MessageSquare,
+//     title: 'Direct line to founders',
+//     text: 'Shape the roadmap — your feedback goes straight to the development team.',
+//     gradient: 'from-fuchsia-400 to-pink-500',
+//     glow: 'shadow-[0_0_40px_-8px_rgba(232,121,249,0.5)]',
+//   },
+// ];
+//
+// const counters = [
+//   { icon: Users, value: '1,200+', label: 'on the waitlist' },
+//   { icon: Wifi, value: '2 wks', label: 'until early access' },
+//   { icon: Crown, value: 'Top 10%', label: 'get founding perks' },
+// ];
 
-  return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50/50 via-white to-gray-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-full text-sm font-semibold mb-6 shadow-soft border border-blue-100/50">
-            <Star className="w-4 h-4 mr-2 text-blue-600" />
-            Exclusive Benefits
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2 sm:px-0">
-            Why Join the{' '}
-            <span className="gradient-text-blue">Waitlist?</span>
-          </h2>
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
-            Get exclusive perks and be among the first to revolutionize your contracting workflow
+const WhyJoin = () => (
+  <section id="why-join" className="relative overflow-hidden py-24 lg:py-32">
+    <div className="aurora-bg absolute inset-0" />
+    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl text-center">
+        <Reveal>
+          <span className="section-pill">
+            <Crown className="h-4 w-4 text-amber-400" />
+            Why Join
+          </span>
+        </Reveal>
+
+        {/*
+        COMMENTED OUT per request — the "early birds" block + benefits + counters:
+
+        <SplitText
+          as="h2"
+          className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+          text="Early birds get the perks."
+        />
+        <Reveal delay={150}>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
+            The first people in get the most value — and help shape the product.
           </p>
-        </div>
+        </Reveal>
+        */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {benefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="group relative bg-white p-6 sm:p-8 rounded-modern-lg shadow-soft hover:shadow-xl transition-all duration-500 border border-gray-100/50 hover:border-gray-200/50 text-center hover:-translate-y-2"
-            >
-              {/* Gradient background overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${benefit.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-modern-lg`}></div>
-              
-              <div className="relative z-10">
-                <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${benefit.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <benefit.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-gray-800 transition-colors">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
-                  {benefit.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Additional stats section */}
-        {/* <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Users className="w-6 h-6 text-white" />
-            </div>
-            <div className="text-2xl sm:text-3xl font-bold gradient-text-blue mb-2">500+</div>
-            <div className="text-sm sm:text-base text-gray-600">Legal Teams Waiting</div>
-          </div>
-          <div className="text-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Clock className="w-6 h-6 text-white" />
-            </div>
-            <div className="text-2xl sm:text-3xl font-bold gradient-text-blue mb-2">2 Weeks</div>
-            <div className="text-sm sm:text-base text-gray-600">Until Early Access</div>
-          </div>
-          <div className="text-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-6 h-6 text-white" />
-            </div>
-            <div className="text-2xl sm:text-3xl font-bold gradient-text-blue mb-2">100%</div>
-            <div className="text-sm sm:text-base text-gray-600">Secure & Private</div>
-          </div>
-        </div> */}
+        <Reveal>
+          <SplitText
+            as="h2"
+            className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+            text="See Paqt in action."
+          />
+        </Reveal>
+        <Reveal delay={150}>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
+            Watch how Paqt analyzes every clause and drafts complete contracts — all with your AI copilot by your side.
+          </p>
+        </Reveal>
       </div>
-    </section>
-  );
-};
+
+      <VideoShowcase />
+
+      {/*
+      COMMENTED OUT per request:
+      <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {benefits.map((b, i) => (
+          <Reveal
+            key={b.title}
+            delay={i * 120}
+            className="group card glow-border p-7 text-center transition-all duration-500 hover:-translate-y-1.5"
+          >
+            <div className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${b.gradient} ${b.glow} transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3`}>
+              <b.icon className="h-8 w-8 text-white" />
+            </div>
+            <h3 className="mt-5 font-display text-lg font-bold text-white">{b.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/50">{b.text}</p>
+          </Reveal>
+        ))}
+      </div>
+
+      <div className="mt-16 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
+        {counters.map((c, i) => (
+          <Reveal
+            key={c.label}
+            delay={200 + i * 120}
+            className="flex items-center justify-center gap-4 rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-6 backdrop-blur"
+          >
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-violet-400">
+              <c.icon className="h-6 w-6" />
+            </span>
+            <div>
+              <div className="font-display text-2xl font-bold text-white">{c.value}</div>
+              <div className="text-sm text-white/50">{c.label}</div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+      */}
+    </div>
+  </section>
+);
 
 export default WhyJoin;

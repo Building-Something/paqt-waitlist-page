@@ -1,21 +1,20 @@
-import { ArrowRight, Sparkles, Zap, ShieldCheck, Workflow } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, FileSearch, FileCheck2, Loader } from 'lucide-react';
+import { SplitText } from './SplitText';
+import { Reveal } from './Reveal';
 
-const features = [
-  {
-    icon: Zap,
-    title: '10x Faster',
-    description: 'Draft complete contracts in minutes, not hours.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Legally Precise',
-    description: 'Clause-level accuracy built for legal teams.',
-  },
-  {
-    icon: Workflow,
-    title: 'Fully Automated',
-    description: 'From first draft to e-signature, done for you.',
-  },
+const stats = [
+  { value: '10×', label: 'faster drafting' },
+  { value: '50+', label: 'contract templates' },
+  { value: '95%', label: 'clause accuracy' },
+  { value: '<60s', label: 'first draft' },
+];
+
+// Floating chips hinting at the product's workflow
+const chips = [
+  { icon: FileCheck2, text: 'NDA generated', delay: '0s', pos: 'left-[6%] top-[22%]', color: 'from-brand-500/30 to-brand-500/5' },
+  { icon: FileSearch, text: 'Risks found · 4', delay: '1.2s', pos: 'right-[7%] top-[26%]', color: 'from-cyan-400/30 to-cyan-400/5' },
+  { icon: Zap, text: 'Redraft applied', delay: '2.2s', pos: 'left-[9%] bottom-[24%]', color: 'from-violet-500/30 to-violet-500/5' },
+  { icon: Loader, text: 'Sent for signature', delay: '0.7s', pos: 'right-[10%] bottom-[20%]', color: 'from-pink-500/30 to-pink-500/5' },
 ];
 
 const Hero = () => {
@@ -24,62 +23,76 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <section className="relative overflow-hidden pb-24 pt-36 lg:pb-32 lg:pt-44">
+      {/* Animated aurora + grid background */}
       <div className="aurora-bg absolute inset-0" />
-      <div className="dark-grid-bg absolute inset-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,transparent_40%,#05060f_100%)]" />
+      <div className="grid-lines absolute inset-0" />
 
-      {/* Floating orbs */}
-      <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-[140%] rounded-full bg-brand-300/20 blur-3xl animate-float" />
-      <div className="absolute left-1/2 top-40 h-80 w-80 -translate-x-[10%] rounded-full bg-cyan-200/20 blur-3xl animate-float [animation-delay:2s]" />
+      {/* Drifting glow orbs */}
+      <div className="animate-float absolute left-1/2 top-20 h-[26rem] w-[26rem] -translate-x-[150%] rounded-full bg-brand-600/25 blur-[130px]" />
+      <div className="animate-float absolute left-1/2 top-24 h-80 w-80 translate-x-[8%] rounded-full bg-violet-600/25 blur-[120px] [animation-delay:2.5s]" />
+      <div className="animate-float absolute bottom-10 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-500/15 blur-[150px] [animation-delay:1.4s]" />
+
+      {/* Floating product chips (desktop only) */}
+      {chips.map((chip) => (
+        <div
+          key={chip.text}
+          className={`absolute z-10 hidden animate-float lg:block ${chip.pos}`}
+          style={{ animationDelay: chip.delay }}
+        >
+          <div className={`glow-border flex items-center gap-2.5 rounded-2xl border border-white/10 bg-gradient-to-br ${chip.color} px-4 py-3 backdrop-blur-xl`}>
+            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 text-white">
+              <chip.icon className="h-4 w-4" />
+            </span>
+            <span className="whitespace-nowrap text-sm font-medium text-white/90">{chip.text}</span>
+          </div>
+        </div>
+      ))}
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 px-4 py-1.5 text-sm font-semibold text-brand-700 shadow-soft backdrop-blur">
-            <Sparkles className="h-4 w-4 text-brand-500" />
-            Copilot for modern legal teams
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/80 shadow-soft backdrop-blur">
+            <Sparkles className="h-4 w-4 text-violet-400" />
+            The AI copilot for modern legal teams
+            <span className="ml-1 inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse-soft" />
           </div>
 
-          <h1
-            className="animate-fade-up mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl lg:text-7xl"
-            style={{ animationDelay: '100ms' }}
-          >
-            Smarter contracts, built in{' '}
-            <span className="gradient-text">minutes.</span>
-          </h1>
+          <SplitText
+            as="h1"
+            className="mt-8 font-display text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
+            text="Smarter contracts, built in minutes."
+          />
 
-          <p
-            className="animate-fade-up mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl"
-            style={{ animationDelay: '200ms' }}
-          >
-            Paqt is the AI contract copilot that drafts, reviews, and manages agreements
-            end-to-end — so you can close deals in hours, not weeks.
+          <p className="reveal is-visible mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55 sm:text-xl" style={{ transitionDelay: '300ms' }}>
+            Paqt drafts, reviews, and finalizes agreements end-to-end. Drop the legalese,
+            keep the precision — and close deals in{' '}
+            <span className="accent-serif text-xl text-white/90">hours, not weeks.</span>
           </p>
 
-          <div className="animate-fade-up mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: '300ms' }}>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button onClick={scrollToForm} className="btn-primary group w-full px-8 py-4 text-base sm:w-auto">
               Join the Waitlist
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
-            <a href="#how-it-works" className="btn-secondary w-full px-8 py-4 text-base sm:w-auto">
-              See how it works
+            <a href="#product" className="btn-ghost group w-full px-8 py-4 text-base sm:w-auto">
+              See what it does
+              <span className="transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
             </a>
           </div>
 
-          <p className="animate-fade-up mt-6 text-sm text-slate-500" style={{ animationDelay: '400ms' }}>
-            Free for early access members · No credit card required
+          <p className="mt-6 text-sm text-white/40">
+            Free for early-access members · No credit card required · Launch perks included
           </p>
         </div>
 
-        {/* Feature cards */}
-        <div className="animate-fade-up mx-auto mt-20 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-3" style={{ animationDelay: '500ms' }}>
-          {features.map((f) => (
-            <div key={f.title} className="card group text-center p-7 hover:-translate-y-1 hover:shadow-glow">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition-all duration-300 group-hover:bg-brand-600 group-hover:text-white">
-                <f.icon className="h-6 w-6" />
-              </div>
-              <h3 className="font-display text-lg font-bold text-slate-900">{f.title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{f.description}</p>
-            </div>
+        {/* Stats strip */}
+        <div className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 100} className="bg-ink-900/60 px-6 py-7 text-center backdrop-blur">
+              <div className="font-display text-3xl font-bold text-gradient-static sm:text-4xl">{s.value}</div>
+              <div className="mt-1 text-sm text-white/50">{s.label}</div>
+            </Reveal>
           ))}
         </div>
       </div>
