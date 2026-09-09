@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import LogoT from '../../assets/Logo-Variant-Transparent.png';
+import LogoT from '../../assets/Logo-Variant-Transparent-White.png';
 
 const navLinks = [
   { label: 'Product', href: '#product' },

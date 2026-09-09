@@ -13,6 +13,7 @@
     "server:dev": "node --watch --watch-path=.env server.mjs"
   },
   "dependencies": {
+    "@mux/mux-player-react": "^3.13.3",
     "@supabase/supabase-js": "^2.56.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
