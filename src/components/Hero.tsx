@@ -54,7 +54,7 @@ const Hero = () => {
         <div className="mx-auto max-w-4xl text-center">
           <div className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/80 shadow-soft backdrop-blur">
             <Sparkles className="h-4 w-4 text-violet-400" />
-            The AI copilot for modern legal teams
+            The Contracting Copilot for modern legal teams
             <span className="ml-1 inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse-soft" />
           </div>
 
@@ -66,7 +66,7 @@ const Hero = () => {
 
           <p className="reveal is-visible mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55 sm:text-xl" style={{ transitionDelay: '300ms' }}>
             Paqt drafts, reviews, and finalizes agreements end-to-end. Drop the legalese,
-            keep the precision — and close deals in{' '}
+            keep the precision, and close deals in{' '}
             <span className="accent-serif text-xl text-white/90">hours, not weeks.</span>
           </p>
 
@@ -87,9 +87,13 @@ const Hero = () => {
         </div>
 
         {/* Stats strip */}
-        <div className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-4">
+        <div className="mx-auto mt-20 grid max-w-4xl grid-cols-2 overflow-hidden rounded-3xl border border-white/10 sm:grid-cols-4">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 100} className="bg-ink-900/60 px-6 py-7 text-center backdrop-blur">
+            <Reveal
+              key={s.label}
+              delay={i * 100}
+              className={`border-white/10 bg-ink-900/60 px-6 py-7 text-center backdrop-blur ${i < 2 ? 'border-b sm:border-b-0' : ''} ${i < 3 ? 'border-r' : ''}`}
+            >
               <div className="font-display text-3xl font-bold text-gradient-static sm:text-4xl">{s.value}</div>
               <div className="mt-1 text-sm text-white/50">{s.label}</div>
             </Reveal>

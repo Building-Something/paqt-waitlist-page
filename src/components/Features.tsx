@@ -14,8 +14,8 @@ const workflows = [
     description:
       'Pick from 50+ expertly built templates or describe what you need in plain language. Paqt assembles the clauses, fills the parties, and delivers a polished draft in under a minute.',
     steps: [
-      { icon: FileText, label: 'Pick a template', detail: 'NDA, MSA, SaaS, employment — 50+ and growing.' },
-      { icon: PenLine, label: 'Describe your needs', detail: 'Parties, terms, obligations — add them in plain English.' },
+      { icon: FileText, label: 'Pick a template', detail: 'NDA, MSA, SaaS, employment. 50+ and growing.' },
+      { icon: PenLine, label: 'Describe your needs', detail: 'Parties, terms, obligations. Add them in plain English.' },
       { icon: Send, label: 'Send to sign', detail: 'Finalize and dispatch for secure e-signature in one click.' },
     ],
     bullets: ['Clause-level accuracy', 'Auto-fills parties & dates', 'Export to Word / PDF'],
@@ -30,9 +30,9 @@ const workflows = [
     description:
       'Upload a PDF, paste a link, or drop an agreement straight from your inbox. Paqt scans the full document, flags the clauses that matter, and explains them in plain language.',
     steps: [
-      { icon: Upload, label: 'Upload an agreement', detail: 'Drag, drop, or paste a URL — we read the whole thing.' },
+      { icon: Upload, label: 'Upload an agreement', detail: 'Drag, drop, or paste a URL. We read the whole thing.' },
       { icon: ScanSearch, label: 'Spot risks instantly', detail: 'Missing clauses, red flags, and obligations at a glance.' },
-      { icon: MessageSquareText, label: 'Ask your copilot', detail: 'Chat for clause-level answers and request revisions.' },
+      { icon: MessageSquareText, label: 'Ask your Contracting Copilot', detail: 'Chat for clause-level answers and request revisions.' },
     ],
     bullets: ['Plain-English summaries', 'Risk scoring per clause', 'One-click revision requests'],
   },
@@ -70,7 +70,7 @@ const Features = () => {
           />
           <Reveal delay={150}>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
-              Paqt carries a contract from first draft to final signature — with a copilot
+              Paqt carries a contract from first draft to final signature, with a Contracting Copilot
               that understands both the <span className="accent-serif text-white/85">law</span> and your business.
             </p>
           </Reveal>

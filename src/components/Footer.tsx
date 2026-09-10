@@ -1,14 +1,10 @@
-import { Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import { Twitter, Heart } from 'lucide-react';
 import LogoT from '../../assets/Logo-Variant-Transparent-White.png';
 
 const productLinks = ['Contract Composition', 'Contract Analysis', 'Templates', 'Integrations', 'API'];
 const companyLinks = ['About', 'Blog', 'Careers', 'Contact'];
 const legalLinks = ['Terms of Service', 'Privacy Policy', 'Security', 'Cookies'];
-const socials = [
-  { icon: Twitter, label: 'Twitter' },
-  { icon: Linkedin, label: 'LinkedIn' },
-  { icon: Github, label: 'GitHub' },
-];
+const socials = [{ icon: Twitter, label: 'Twitter', href: 'https://x.com/usepaqt' }];
 
 const Footer = () => {
   const scrollToForm = () => {
@@ -31,14 +27,16 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-5 max-w-md text-base leading-relaxed text-white/45">
-              The AI copilot for creating, reviewing, and improving contracts — covering
+              The Contracting Copilot for creating, reviewing, and improving contracts, covering
               every detail while saving your team hours every week.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {socials.map((s) => (
                 <a
                   key={s.label}
-                  href="#"
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-violet-300"
                 >
