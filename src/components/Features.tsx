@@ -6,7 +6,7 @@ import { SplitText } from './SplitText';
 const workflows = [
   {
     id: 'generate',
-    tag: 'Contract Generation',
+    tag: 'Contract Composition',
     icon: FileText,
     gradient: 'from-brand-500 to-violet-600',
     glow: 'rgba(42,92,231,0.45)',
@@ -22,7 +22,7 @@ const workflows = [
   },
   {
     id: 'review',
-    tag: 'Contract Review',
+    tag: 'Contract Analysis',
     icon: ScanSearch,
     gradient: 'from-cyan-500 to-violet-600',
     glow: 'rgba(34,211,238,0.4)',

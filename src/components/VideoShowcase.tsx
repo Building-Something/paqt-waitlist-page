@@ -20,9 +20,9 @@ const slides = [
     glow: 'shadow-[0_0_60px_-12px_rgba(139,92,246,0.45)]',
   },
   {
-    id: 'generation',
-    label: 'Contract Generation',
-    eyebrow: 'Generate',
+    id: 'composition',
+    label: 'Contract Composition',
+    eyebrow: 'Compose',
     heading: 'Draft a contract in minutes',
     text: 'Describe what you need, pick from 50+ templates, and get a complete agreement drafted, reviewed, and ready to e-sign.',
     video: composeVideo,
