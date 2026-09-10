@@ -124,7 +124,7 @@ const VideoShowcase = () => {
           role="tablist"
           aria-label="Product demos"
           onKeyDown={focusKey}
-          className="relative mx-auto flex w-full max-w-xl rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur"
+          className="relative mx-auto flex w-full max-w-sm rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur min-[420px]:max-w-md sm:max-w-xl"
         >
           <div
             aria-hidden
@@ -137,11 +137,11 @@ const VideoShowcase = () => {
               role="tab"
               aria-selected={active === i}
               onClick={() => setActive(i)}
-              className={`relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full py-3 text-sm font-semibold transition-colors duration-300 ${
+              className={`relative z-10 flex min-w-0 flex-1 items-center justify-center gap-1 rounded-full py-2.5 text-xs font-semibold transition-colors duration-300 sm:gap-1.5 sm:py-3 sm:text-sm ${
                 active === i ? 'text-white' : 'text-white/50 hover:text-white/80'
               }`}
             >
-              <s.icon className="h-4 w-4 shrink-0" />
+              <s.icon className="hidden h-4 w-4 shrink-0 sm:block" />
               <span className="truncate">{s.eyebrow}</span>
             </button>
           ))}
