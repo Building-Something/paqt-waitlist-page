@@ -8,7 +8,7 @@ const isValidGaId = (id: string | undefined): id is string =>
 export function initAnalytics() {
   if (!isValidGaId(GA_ID)) {
     if (GA_ID && import.meta.env.DEV) {
-      console.warn('[Paqt] VITE_GA_MEASUREMENT_ID is set but looks invalid — Google Analytics not loaded.');
+      console.warn('[Paqt] VITE_GA_MEASUREMENT_ID is set but looks invalid. Google Analytics not loaded.');
     }
     return;
   }

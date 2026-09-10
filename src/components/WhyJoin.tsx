@@ -17,7 +17,7 @@ import VideoShowcase from './VideoShowcase';
 //   {
 //     icon: Gift,
 //     title: 'Founding discount',
-//     text: 'Up to 50% off your first year — a thank-you for believing in us early.',
+//     text: 'Up to 50% off your first year, a thank-you for believing in us early.',
 //     gradient: 'from-green-400 to-emerald-500',
 //     glow: 'shadow-[0_0_40px_-8px_rgba(52,211,153,0.5)]',
 //   },
@@ -31,7 +31,7 @@ import VideoShowcase from './VideoShowcase';
 //   {
 //     icon: MessageSquare,
 //     title: 'Direct line to founders',
-//     text: 'Shape the roadmap — your feedback goes straight to the development team.',
+//     text: 'Shape the roadmap, your feedback goes straight to the development team.',
 //     gradient: 'from-fuchsia-400 to-pink-500',
 //     glow: 'shadow-[0_0_40px_-8px_rgba(232,121,249,0.5)]',
 //   },
@@ -56,7 +56,7 @@ const WhyJoin = () => (
         </Reveal>
 
         {/*
-        COMMENTED OUT per request — the "early birds" block + benefits + counters:
+        COMMENTED OUT per request, the "early birds" block + benefits + counters:
 
         <SplitText
           as="h2"
@@ -65,7 +65,7 @@ const WhyJoin = () => (
         />
         <Reveal delay={150}>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
-            The first people in get the most value — and help shape the product.
+            The first people in get the most value and help shape the product.
           </p>
         </Reveal>
         */}
