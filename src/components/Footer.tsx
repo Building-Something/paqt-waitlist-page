@@ -1,7 +1,7 @@
 import { Twitter, Linkedin, Github, Heart } from 'lucide-react';
 import LogoT from '../../assets/Logo-Variant-Transparent-White.png';
 
-const productLinks = ['Contract Generation', 'Contract Review', 'Templates', 'Integrations', 'API'];
+const productLinks = ['Contract Composition', 'Contract Analysis', 'Templates', 'Integrations', 'API'];
 const companyLinks = ['About', 'Blog', 'Careers', 'Contact'];
 const legalLinks = ['Terms of Service', 'Privacy Policy', 'Security', 'Cookies'];
 const socials = [

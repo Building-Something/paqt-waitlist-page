@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import MuxPlayer from '@mux/mux-player-react';
-import { ScanSearch, PenTool, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ScanSearch, PenTool } from 'lucide-react';
 import { Reveal } from './Reveal';
 import reviewVideo from '../../assets/Contract Review Demo.mp4';
 import composeVideo from '../../assets/Contract Composition.mp4';
@@ -20,9 +20,9 @@ const slides = [
     glow: 'shadow-[0_0_60px_-12px_rgba(139,92,246,0.45)]',
   },
   {
-    id: 'generation',
-    label: 'Contract Generation',
-    eyebrow: 'Generate',
+    id: 'composition',
+    label: 'Contract Composition',
+    eyebrow: 'Compose',
     heading: 'Draft a contract in minutes',
     text: 'Describe what you need, pick from 50+ templates, and get a complete agreement drafted, reviewed, and ready to e-sign.',
     video: composeVideo,
@@ -37,16 +37,27 @@ const VideoShowcase = () => {
   const [ratios, setRatios] = useState<Record<number, number>>({});
   const playerRefs = useRef<(MuxPlayerHandle | null)[]>([]);
 
-  useEffect(() => {
+  const activeRef = useRef(active);
+  activeRef.current = active;
+
+  const syncPlayers = useCallback(() => {
     playerRefs.current.forEach((player, i) => {
       if (!player) return;
-      if (i === active) {
-        player.play().catch(() => {});
-      } else {
-        player.pause();
+      try {
+        if (i === activeRef.current) {
+          if (player.paused) player.play();
+        } else if (!player.paused) {
+          player.pause();
+        }
+      } catch {
+        /* ignore */
       }
     });
-  }, [active]);
+  }, []);
+
+  useEffect(() => {
+    syncPlayers();
+  }, [active, syncPlayers]);
 
   const onPlayerMount = (el: MuxPlayerHandle | null, index: number) => {
     playerRefs.current[index] = el;
@@ -62,6 +73,11 @@ const VideoShowcase = () => {
       applyNaturalAspect();
     } else {
       el.addEventListener('loadedmetadata', applyNaturalAspect, { once: true });
+    }
+    if (el.readyState >= 1) {
+      syncPlayers();
+    } else {
+      el.addEventListener('loadedmetadata', syncPlayers, { once: true });
     }
   };
 
@@ -106,21 +122,6 @@ const VideoShowcase = () => {
 
       {/* Sliding cards */}
       <div className="relative mt-10">
-        <button
-          onClick={() => setActive((active - 1 + slides.length) % slides.length)}
-          aria-label="Previous demo"
-          className="absolute -left-4 top-[38%] z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-ink-800/90 text-white/70 shadow-soft backdrop-blur transition-all duration-300 hover:scale-105 hover:border-white/25 hover:text-white sm:flex lg:-left-6"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          onClick={() => setActive((active + 1) % slides.length)}
-          aria-label="Next demo"
-          className="absolute -right-4 top-[38%] z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-ink-800/90 text-white/70 shadow-soft backdrop-blur transition-all duration-300 hover:scale-105 hover:border-white/25 hover:text-white sm:flex lg:-right-6"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-
         <div className="overflow-hidden rounded-[2rem]">
           <div
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
