@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
@@ -17,6 +18,8 @@ function App() {
       <div className="noise pointer-events-none fixed inset-0 z-[2] opacity-[0.22]" />
 
       <CustomCursor />
+
+      <Analytics />
 
       <div className="relative z-10">
         <Header />
