@@ -81,9 +81,6 @@ const Hero = () => {
             </a>
           </div>
 
-          <p className="mt-6 text-sm text-white/40">
-            Free for early-access members · No credit card required · Launch perks included
-          </p>
         </div>
 
         {/* Stats strip */}
