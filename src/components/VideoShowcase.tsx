@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import MuxPlayer from '@mux/mux-player-react';
-import { ScanSearch, PenTool } from 'lucide-react';
+import { ScanSearch, PenTool, ShieldQuestion, FileDown } from 'lucide-react';
 import { Reveal } from './Reveal';
-import reviewVideo from '../../assets/Contract Review Demo.mp4';
-import composeVideo from '../../assets/Contract Composition.mp4';
+import reviewVideo from '../../assets/Contract Review Demo-web.mp4';
+import composeVideo from '../../assets/Contract Composition-web.mp4';
+import clarifyVideo from '../../assets/agentic-doubt-web.mp4';
+import exportVideo from '../../assets/export-risks-web.mp4';
 
 type MuxPlayerHandle = React.ComponentRef<typeof MuxPlayer>;
 
@@ -15,6 +17,7 @@ const slides = [
     heading: 'Analyze any contract in seconds',
     text: 'Upload any contract and Paqt flags risks, obligations, and red flags instantly, then ask your Contracting Copilot anything about it.',
     video: reviewVideo,
+    icon: ScanSearch,
     chip: 'border-violet-400/30 bg-violet-500/10 text-violet-300',
     bar: 'from-violet-500 to-fuchsia-500',
     glow: 'shadow-[0_0_60px_-12px_rgba(139,92,246,0.45)]',
@@ -26,9 +29,34 @@ const slides = [
     heading: 'Draft a contract in minutes',
     text: 'Describe what you need, pick from 50+ templates, and get a complete agreement drafted, reviewed, and ready to e-sign.',
     video: composeVideo,
+    icon: PenTool,
     chip: 'border-cyan-400/30 bg-cyan-500/10 text-cyan-300',
     bar: 'from-cyan-500 to-sky-500',
     glow: 'shadow-[0_0_60px_-12px_rgba(34,211,238,0.45)]',
+  },
+  {
+    id: 'clarify',
+    label: 'Agentic Doubt Analysis',
+    eyebrow: 'Clarify',
+    heading: 'Clears clause confusion, finds safer alternatives',
+    text: 'Upload a contract and Paqt surfaces confusing clauses, explains them clearly, and suggests better risk-free alternatives.',
+    video: clarifyVideo,
+    icon: ShieldQuestion,
+    chip: 'border-amber-400/30 bg-amber-500/10 text-amber-300',
+    bar: 'from-amber-400 to-orange-500',
+    glow: 'shadow-[0_0_60px_-12px_rgba(251,191,36,0.45)]',
+  },
+  {
+    id: 'export',
+    label: 'Risk Export',
+    eyebrow: 'Export',
+    heading: 'Export risks with potential remedies',
+    text: 'Get analyzed contract risks with severity levels and recommended remedies, ready to export and share with your team.',
+    video: exportVideo,
+    icon: FileDown,
+    chip: 'border-emerald-400/30 bg-emerald-500/10 text-emerald-300',
+    bar: 'from-emerald-500 to-teal-500',
+    glow: 'shadow-[0_0_60px_-12px_rgba(52,211,153,0.45)]',
   },
 ];
 
@@ -96,11 +124,11 @@ const VideoShowcase = () => {
           role="tablist"
           aria-label="Product demos"
           onKeyDown={focusKey}
-          className="relative mx-auto flex w-full max-w-md rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur"
+          className="relative mx-auto flex w-full max-w-xl rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur"
         >
           <div
             aria-hidden
-            className={`absolute inset-y-1 w-[calc(50%-0.25rem)] rounded-full bg-gradient-to-r ${slides[active].bar} transition-transform duration-500 ease-out`}
+            className={`absolute inset-y-1 w-[calc(25%-0.125rem)] rounded-full bg-gradient-to-r ${slides[active].bar} transition-transform duration-500 ease-out`}
             style={{ transform: `translateX(${active * 100}%)` }}
           />
           {slides.map((s, i) => (
@@ -109,12 +137,12 @@ const VideoShowcase = () => {
               role="tab"
               aria-selected={active === i}
               onClick={() => setActive(i)}
-              className={`relative z-10 flex flex-1 items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold transition-colors duration-300 ${
+              className={`relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full py-3 text-sm font-semibold transition-colors duration-300 ${
                 active === i ? 'text-white' : 'text-white/50 hover:text-white/80'
               }`}
             >
-              {i === 0 ? <ScanSearch className="h-4 w-4" /> : <PenTool className="h-4 w-4" />}
-              {s.eyebrow}
+              <s.icon className="h-4 w-4 shrink-0" />
+              <span className="truncate">{s.eyebrow}</span>
             </button>
           ))}
         </div>
@@ -129,7 +157,7 @@ const VideoShowcase = () => {
           >
             {slides.map((s, i) => (
               <div key={s.id} className="w-full shrink-0 px-1 sm:px-2">
-                <div className="card glow-border overflow-hidden ${active === i ? s.glow : ''}">
+                <div className={`card glow-border overflow-hidden ${active === i ? s.glow : ''}`}>
                   <div className="relative w-full overflow-hidden bg-ink-950" style={{ aspectRatio: ratios[i] ? `${ratios[i]}` : '16 / 9' }}>
                     <MuxPlayer
                       ref={(el) => onPlayerMount(el, i)}
@@ -157,7 +185,7 @@ const VideoShowcase = () => {
                     <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${s.bar}`} />
                     <div className="flex items-center gap-2">
                       <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold tracking-wide ${s.chip}`}>
-                        {i === 0 ? <ScanSearch className="h-3.5 w-3.5" /> : <PenTool className="h-3.5 w-3.5" />}
+                        <s.icon className="h-3.5 w-3.5" />
                         {s.label}
                       </span>
                     </div>
