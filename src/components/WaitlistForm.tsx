@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Mail, Building, Sparkles, ShieldCheck, CheckCircle2, MailCheck, Star, Lock, Zap, User } from 'lucide-react';
+import { ArrowRight, Mail, Building, Sparkles, ShieldCheck, CheckCircle2, MailCheck, Star, Lock, User } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { SplitText } from './SplitText';
 import { track } from '../lib/analytics';
@@ -213,13 +213,6 @@ const WaitlistForm = () => {
                 </p>
               </form>
             </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={350}>
-          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-white/40">
-            <Zap className="h-4 w-4 text-amber-300" />
-            Founding members get up to 50% off year one
           </div>
         </Reveal>
       </div>
