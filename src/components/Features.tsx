@@ -77,18 +77,18 @@ const Features = () => {
         </div>
 
         {/* Workflow switcher */}
-        <Reveal delay={200} className="mx-auto mt-10 flex w-fit flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 p-1.5 backdrop-blur">
+        <Reveal delay={200} className="mx-auto mt-10 flex w-full flex-col gap-1.5 rounded-3xl border border-white/10 bg-white/5 p-1.5 backdrop-blur sm:w-fit sm:flex-row sm:items-center sm:justify-center sm:gap-2 sm:rounded-full">
           {workflows.map((w) => (
             <button
               key={w.id}
               onClick={() => setActive(w.id)}
-              className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
+              className={`flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 sm:w-auto sm:py-2.5 ${
                 active === w.id
                   ? 'bg-gradient-to-r from-brand-600 to-violet-600 text-white shadow-glow'
                   : 'text-white/60 hover:text-white'
               }`}
             >
-              <w.icon className="h-4 w-4" />
+              <w.icon className="h-4 w-4 shrink-0" />
               {w.tag}
             </button>
           ))}
