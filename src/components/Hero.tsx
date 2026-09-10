@@ -1,6 +1,7 @@
-import { ArrowRight, Sparkles, Zap, FileSearch, FileCheck2, Loader } from 'lucide-react';
+import { ArrowRight, Zap, FileSearch, FileCheck2, Loader } from 'lucide-react';
 import { SplitText } from './SplitText';
 import { Reveal } from './Reveal';
+import logoIcon from '../../assets/logo-icon.webp';
 
 const stats = [
   { value: '10×', label: 'faster drafting' },
@@ -52,10 +53,10 @@ const Hero = () => {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/80 shadow-soft backdrop-blur">
-            <Sparkles className="h-4 w-4 text-violet-400" />
-            The Contracting Copilot for modern legal teams
-            <span className="ml-1 inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse-soft" />
+          <div className="reveal is-visible inline-flex max-w-full items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/80 shadow-soft backdrop-blur sm:gap-2 sm:px-5 sm:py-2 sm:text-sm">
+            <img src={logoIcon} alt="" className="h-4 w-4 shrink-0 rounded-sm object-contain sm:h-5 sm:w-5" />
+            <span>The Contracting Copilot for modern legal teams</span>
+            <span className="inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400 animate-pulse-soft sm:h-2 sm:w-2" />
           </div>
 
           <SplitText
