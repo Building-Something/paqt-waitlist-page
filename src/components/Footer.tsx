@@ -1,4 +1,4 @@
-import { Twitter, Heart } from 'lucide-react';
+import { Twitter } from 'lucide-react';
 import LogoT from '../../assets/Logo-Variant-Transparent-White.png';
 
 const productLinks = ['Contract Composition', 'Contract Analysis', 'Templates', 'Integrations', 'API'];
@@ -78,10 +78,6 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-8 sm:flex-row">
           <p className="flex items-center gap-1.5 text-sm text-white/35">
             © {new Date().getFullYear()} Paqt. All rights reserved.
-            <span className="hidden sm:inline">·</span>
-            <span className="flex items-center gap-1">
-              Built with <Heart className="h-3.5 w-3.5 text-red-400" /> for legal teams
-            </span>
           </p>
           <nav className="flex flex-wrap justify-center gap-5 text-sm">
             {legalLinks.map((link) => (
