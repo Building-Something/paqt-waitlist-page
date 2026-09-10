@@ -79,7 +79,7 @@ const WhyJoin = () => (
         </Reveal>
         <Reveal delay={150}>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
-            Watch how Paqt analyzes every clause and drafts complete contracts — all with your AI copilot by your side.
+            Watch how Paqt analyzes every clause and drafts complete contracts, all with your Contracting Copilot by your side.
           </p>
         </Reveal>
       </div>

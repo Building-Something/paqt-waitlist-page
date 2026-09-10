@@ -82,7 +82,7 @@ const WaitlistForm = () => {
             You're on the list!
           </h2>
           <p className="animate-fade-up mx-auto mt-4 max-w-lg text-lg leading-relaxed text-white/55" style={{ animationDelay: '200ms' }}>
-            Welcome aboard. We'll email you the moment early access opens —
+            Welcome aboard. We'll email you the moment early access opens,
             and you'll be first in line for founding perks.
           </p>
 
@@ -122,7 +122,7 @@ const WaitlistForm = () => {
           />
           <Reveal delay={150}>
             <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-white/55">
-              Join thousands waiting for smarter contracts. Zero spam — just early access.
+              Join thousands waiting for smarter contracts. Zero spam, just early access.
             </p>
           </Reveal>
         </div>

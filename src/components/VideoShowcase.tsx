@@ -13,7 +13,7 @@ const slides = [
     label: 'Contract Analysis',
     eyebrow: 'Review',
     heading: 'Analyze any contract in seconds',
-    text: 'Upload any contract and Paqt flags risks, obligations, and red flags instantly — then ask your AI copilot anything about it.',
+    text: 'Upload any contract and Paqt flags risks, obligations, and red flags instantly, then ask your Contracting Copilot anything about it.',
     video: reviewVideo,
     chip: 'border-violet-400/30 bg-violet-500/10 text-violet-300',
     bar: 'from-violet-500 to-fuchsia-500',

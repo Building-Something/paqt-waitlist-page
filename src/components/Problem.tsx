@@ -41,7 +41,7 @@ const Problem = () => (
         </Reveal>
         <Reveal delay={200}>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/55">
-            Every deal needs a contract. Most teams still build them from scratch — one email,
+            Every deal needs a contract. Most teams still build them from scratch, one email,
             one template, one version-control nightmare at a time.
           </p>
         </Reveal>

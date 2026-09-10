@@ -8,7 +8,7 @@ const steps = [
     icon: PenLine,
     step: '01',
     title: 'Create',
-    text: 'Start from a template or describe the deal in plain language — Paqt drafts the full agreement.',
+    text: 'Start from a template or describe the deal in plain language. Paqt drafts the full agreement.',
     accent: 'from-brand-500 to-violet-600',
     textAccent: 'text-violet-300',
   },
@@ -24,7 +24,7 @@ const steps = [
     icon: MessageSquare,
     step: '03',
     title: 'Refine',
-    text: 'Chat with your copilot about any clause. Request changes and get them applied in one click.',
+    text: 'Chat with your Contracting Copilot about any clause. Request changes and get them applied in one click.',
     accent: 'from-violet-500 to-fuchsia-600',
     textAccent: 'text-fuchsia-300',
   },
@@ -61,7 +61,7 @@ const HowItWorks = () => {
           />
           <Reveal delay={150}>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
-              One continuous flow — no tab-juggling, no file chaos, no lost versions.
+              One continuous flow. No tab-juggling, no file chaos, no lost versions.
             </p>
           </Reveal>
         </div>

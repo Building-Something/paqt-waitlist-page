@@ -31,7 +31,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-5 max-w-md text-base leading-relaxed text-white/45">
-              The AI copilot for creating, reviewing, and improving contracts — covering
+              The Contracting Copilot for creating, reviewing, and improving contracts, covering
               every detail while saving your team hours every week.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
