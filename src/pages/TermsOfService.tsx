@@ -113,14 +113,13 @@ const TermsOfService = () => {
       <Section title="12. Governing Law and Disputes">
         <P>
           These Terms are governed by the laws of India. Any disputes arising out of or relating to
-          these Terms shall be subject to the exclusive jurisdiction of the courts at [City of
-          registered office], India.
+          these Terms shall be subject to the exclusive jurisdiction of the courts at [City], India.
         </P>
       </Section>
       <Section title="13. Contact Us">
         <P>
           For questions about these Terms, contact us at:{' '}
-          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>, or at our registered office: {COMPANY.address}.
+          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>.
         </P>
       </Section>
     </LegalLayout>

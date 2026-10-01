@@ -11,12 +11,10 @@ const Support = () => {
           below.
         </P>
       </Section>
-      <Section title="Registered Company Details">
+      <Section title="Company Details">
         <P>
           <strong className="text-white/80">{COMPANY.name}</strong>
         </P>
-        <P>Registered Office:</P>
-        <P className="pl-5">{COMPANY.address}</P>
       </Section>
       <Section title="Email and Website">
         <P>
