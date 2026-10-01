@@ -17,9 +17,6 @@ const Support = () => {
         </P>
         <P>Registered Office:</P>
         <P className="pl-5">{COMPANY.address}</P>
-        <P>
-          Domestic telephone (India): <span className="text-white/80">{COMPANY.phoneIndia}</span>
-        </P>
       </Section>
       <Section title="Email and Website">
         <P>

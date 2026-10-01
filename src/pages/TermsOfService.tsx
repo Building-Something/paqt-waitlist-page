@@ -120,8 +120,7 @@ const TermsOfService = () => {
       <Section title="13. Contact Us">
         <P>
           For questions about these Terms, contact us at:{' '}
-          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>, {COMPANY.phoneIndia}, or
-          at our registered office: {COMPANY.address}.
+          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>, or at our registered office: {COMPANY.address}.
         </P>
       </Section>
     </LegalLayout>

@@ -140,8 +140,7 @@ const PrivacyPolicy = () => {
       <Section title="11. Contact Us">
         <P>
           If you have questions about this Privacy Policy or our data practices, contact us at{' '}
-          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>, at{' '}
-          {COMPANY.phoneIndia}, or at our registered office: {COMPANY.address}.
+          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>, or at our registered office: {COMPANY.address}.
         </P>
       </Section>
     </LegalLayout>

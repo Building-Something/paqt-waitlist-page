@@ -80,8 +80,7 @@ const CancellationPolicy = () => {
       <Section title="8. Contact Us">
         <P>
           Questions about cancellation or refunds? Contact our support team at{' '}
-          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>, or by phone at{' '}
-          {COMPANY.phoneIndia} (India).
+          <Anchor to={`mailto:${COMPANY.email}`}>{COMPANY.email}</Anchor>.
         </P>
         <P>
           Please also review our <Anchor to="/terms-of-service">Terms of Service</Anchor> and{' '}
