@@ -1,13 +1,31 @@
 import { Twitter } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LogoT from '../../assets/Logo-Variant-Transparent-White.png';
 
 const productLinks = ['Contract Composition', 'Contract Analysis', 'Templates', 'Integrations', 'API'];
-const companyLinks = ['About', 'Blog', 'Careers', 'Contact'];
-const legalLinks = ['Terms of Service', 'Privacy Policy', 'Security', 'Cookies'];
+const companyLinks = [
+  { label: 'About', to: '/' },
+  { label: 'Blog', to: '/' },
+  { label: 'Careers', to: '/' },
+  { label: 'Contact', to: '/support' },
+];
+const legalLinks = [
+  { label: 'Terms of Service', to: '/terms-of-service' },
+  { label: 'Privacy Policy', to: '/privacy-policy' },
+  { label: 'Cancellation & Refund', to: '/cancellation' },
+  { label: 'Support', to: '/support' },
+];
 const socials = [{ icon: Twitter, label: 'Twitter', href: 'https://x.com/usepaqt' }];
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToForm = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      return;
+    }
     document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -65,9 +83,9 @@ const Footer = () => {
           <div>
             <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white/70">Company</h3>
             <ul className="mt-5 space-y-3">
-              {companyLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-white/45 transition-colors duration-200 hover:text-white">{link}</a>
+              {companyLinks.map(({ label, to }) => (
+                <li key={label}>
+                  <Link to={to} className="text-white/45 transition-colors duration-200 hover:text-white">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -80,11 +98,11 @@ const Footer = () => {
             © {new Date().getFullYear()} Paqt. All rights reserved.
           </p>
           <nav className="flex flex-wrap justify-center gap-5 text-sm">
-            {legalLinks.map((link) => (
-              <a key={link} href="#" className="text-white/45 transition-colors duration-200 hover:text-white">
-                {link}
-              </a>
-            ))}
+            {legalLinks.map(({ label, to }) => (
+                <Link key={label} to={to} className="text-white/45 transition-colors duration-200 hover:text-white">
+                  {label}
+                </Link>
+              ))}
           </nav>
         </div>
       </div>

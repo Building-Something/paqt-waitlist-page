@@ -1,40 +1,34 @@
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import TrustStrip from './components/TrustStrip';
-import Problem from './components/Problem';
-import Features from './components/Features';
-import HowItWorks from './components/HowItWorks';
-import WhyJoin from './components/WhyJoin';
-import WaitlistForm from './components/WaitlistForm';
-import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
+import Landing from './pages/Landing';
+import Support from './pages/Support';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import CancellationPolicy from './pages/CancellationPolicy';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-ink-950 font-sans text-slate-200">
-      {/* Global atmosphere */}
-      <div className="pointer-events-none fixed inset-0 z-[1] bg-[radial-gradient(100%_50%_at_50%_-10%,rgba(42,92,231,0.08),transparent)]" />
-      <div className="noise pointer-events-none fixed inset-0 z-[2] opacity-[0.22]" />
-
-      <CustomCursor />
-
+    <BrowserRouter>
+      <ScrollToTop />
       <Analytics />
-
-      <div className="relative z-10">
-        <Header />
-        <main>
-          <Hero />
-          <TrustStrip />
-          <Problem />
-          <Features />
-          <HowItWorks />
-          <WhyJoin />
-          <WaitlistForm />
-        </main>
-        <Footer />
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/cancellation" element={<CancellationPolicy />} />
+        <Route path="*" element={<Landing />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LogoT from '../../assets/Logo-Variant-Transparent-White.png';
 
 const navLinks = [
@@ -11,6 +12,8 @@ const navLinks = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 16);
@@ -20,6 +23,10 @@ const Header = () => {
   }, []);
 
   const scrollToForm = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      return;
+    }
     document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setIsMenuOpen(false);
   };
@@ -32,8 +39,9 @@ const Header = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-[4.5rem]">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <Link
+            to="/"
+            onClick={() => window.scrollTo(0, 0)}
             className="group flex items-center gap-2.5"
           >
             <div className="relative h-9 w-9 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105">
@@ -42,7 +50,7 @@ const Header = () => {
             <span className="font-display text-xl font-bold tracking-tight text-white">
               paqt<span className="text-gradient-static">.</span>
             </span>
-          </button>
+          </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
